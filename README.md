@@ -1,30 +1,31 @@
-<h1 align="center">Back End with Java - Globant University</h1>
+<h1 align="center">Backend con Java - Globant University</h1>
 
 <div align="center">
-Back-end with Java | Globant University Learning process and exercises program from <a href="https://globant.eggcooperation.com/" target="_blank">Globant and Egg cooperation</a>.
+Guias y ejercicios del programa Backend con Java de Globant University a través de <a href="https://globant.eggcooperation.com/" target="_blank">Globant and Egg cooperation</a>.
 </div>
 
-<!-- TABLE OF CONTENTS -->
+<!-- TABLE OF CONTENT -->
 
 ## Table of Contents:
 
-- [Class 1](https://github.com/EstefaniLeon/Back-end-with-Java-Globant-University/tree/main/Class%201)
-- [Class 2](https://github.com/EstefaniLeon/Back-end-with-Java-Globant-University/tree/main/Class%202)
-- [Class 3](https://github.com/EstefaniLeon/Back-end-with-Java-Globant-University/tree/main/Class%203)
-- [Class 4](https://github.com/EstefaniLeon/Back-end-with-Java-Globant-University/tree/main/Class%204)
+- [Guía 0](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%200%20-%20Onboarding/Encuentro%201)
+- [Guía 1](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%201%20-%20Introducci%C3%B3n%20al%20c%C3%B3digo)
+- [Guía 2](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%202%20-%20Estructuras%20Selectivas)
+- [Guía 3](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%203%20-%20Estructuras%20Repetitivas)
+- [Guía 4](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%204%20-%20Funciones/Encuentro%2012_13_14)
 
 <!-- CONTACT -->
 
 ## Contact
 
-- [GitHub](https://github.com/EstefaniLeon)
-- [Twitter](https://twitter.com/Esleos1)
-- [LinkedIn](https://www.linkedin.com/in/estefani-leon-osorio-34a56a244/)
+- [GitHub](https://github.com/JimeMatthies)
+- [Twitter](https://twitter.com/JeanGreenStar)
+- [LinkedIn](https://www.linkedin.com/in/jimematthies/)
 
 <!-- FOOTER -->
 
 ## Author ✒️
 
-_If you have some feedback or like what I do, give me a DM and share my content, you can also follow me on my networks to be aware of new publications and interesting projects that I will be developing._
+_Todos los ejercicios estan codificados por mi y mis compañeros a través de los encuentros del curso Backend con Java de Globant University. Si ves algun error, o deseas hacer una acotacion en alguno de estos por favor escribeme asi poder hacer la correción._
 
-Designed with 💖 - by [Estefani León Osorio](https://github.com/EstefaniLeon)
+Hecho por [Jime Matthies || Jean☆](https://github.com/JimeMatthies).
