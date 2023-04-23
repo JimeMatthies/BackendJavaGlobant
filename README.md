@@ -4,7 +4,15 @@
 Guias y ejercicios del programa Backend con Java de Globant University a través de <a href="https://globant.eggcooperation.com/" target="_blank">Globant and Egg cooperation</a>.
 </div>
 
-<!-- TABLE OF CONTENT -->
+<!-- LISTA DE YOUTUBE -->
+
+## Videos de Youtube:
+
+Durante el curso se utilizan distintos videos con ejemplos y tips para aprender a programar. Puedes encontrarlos todos en esta lista de reproducción.
+
+- [Lista de reproducción de Youtube](https://youtube.com/playlist?list=PLQ77MrE4f4tKN_NLQeICJ1rCjiLbj5r94)
+
+<!-- TABLA DE CONTENIDOS -->
 
 ## Table of Contents:
 
@@ -14,7 +22,7 @@ Guias y ejercicios del programa Backend con Java de Globant University a través
 - [Guía 3](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%203%20-%20Estructuras%20Repetitivas)
 - [Guía 4](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%204%20-%20Funciones/Encuentro%2012_13_14)
 
-<!-- CONTACT -->
+<!-- CONTACTO -->
 
 ## Contact
 
