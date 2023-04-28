@@ -11,17 +11,15 @@ Algoritmo Encuentro18_19_20_21Ejercicio4
 	//NOTA: El rango de los números aleatorios para los Vectores será de [-100 a 100]. La longitud
 	//para todos los vectores debe ser la misma, por lo tanto, esa información sólo se solicitará una vez.
 	
-	Definir largo, VectorA, VectorB, VectorC Como Entero
+	Definir largo, VectorA, VectorB, VectorC, VectorD Como Entero
 	Escribir "Ingrese el tamaño de los vectores:"
 	Leer largo
-	Dimension VectorA(largo)
-	Dimension VectorB(largo)
-	Dimension VectorC(largo)
-	menu(largo, VectorA, VectorB, VectorC)
+	Dimension VectorA(largo), VectorB(largo), VectorC(largo), VectorD(largo)
+	menu(largo, VectorA, VectorB, VectorC, VectorD)
 	
 FinAlgoritmo
 
-SubProceso menu (largo Por Referencia, VectorA Por Referencia, VectorB Por Referencia, VectorC Por Referencia)
+SubProceso menu (largo Por Referencia, VectorA Por Referencia, VectorB Por Referencia, VectorC Por Referencia, VectorD Por Referencia)
 	
 	Definir opc Como Caracter
 	
@@ -37,24 +35,23 @@ SubProceso menu (largo Por Referencia, VectorA Por Referencia, VectorB Por Refer
 	Segun Mayusculas(opc) Hacer
 		"A":
 			LlenarVector(largo, VectorA)
-			menu(largo, VectorA, VectorB, VectorC)
+			menu(largo, VectorA, VectorB, VectorC, VectorD)
 		"B":
 			LlenarVector(largo, VectorB)
-			menu(largo, VectorA, VectorB, VectorC)
+			menu(largo, VectorA, VectorB, VectorC, VectorD)
 		"C":
 			SumarVectores(largo, VectorA, VectorB, VectorC)
-			menu(largo, VectorA, VectorB, VectorC)
+			menu(largo, VectorA, VectorB, VectorC, VectorD)
 		"D":
-			RestarVectores(largo, VectorA, VectorB, VectorC)
-			menu(largo, VectorA, VectorB, VectorC)
+			RestarVectores(largo, VectorA, VectorB, VectorD)
+			menu(largo, VectorA, VectorB, VectorC, VectorD)
 		"E":
-			MostrarVector(largo, VectorA, VectorB, VectorC)
-			menu(largo, VectorA, VectorB, VectorC)
+			MostrarVector(largo, VectorA, VectorB, VectorC, VectorD)
 		"F":
 			Escribir "Gracias vuelva pronto!"
 		De Otro Modo:
 			Escribir "Eliga una opcion válida:"
-			menu(largo, VectorA, VectorB, VectorC)
+			menu(largo, VectorA, VectorB, VectorC, VectorD)
 	Fin Segun
 	
 FinSubProceso
@@ -75,15 +72,15 @@ SubProceso SumarVectores(largo Por Referencia, VectorA Por Referencia, VectorB P
 	Escribir "Se ha sumado el vector correctamente."
 FinSubProceso
 
-SubProceso RestarVectores(largo Por Referencia, VectorA Por Referencia, VectorB Por Referencia, VectorC Por Referencia)
+SubProceso RestarVectores(largo Por Referencia, VectorA Por Referencia, VectorB Por Referencia, VectorD Por Referencia)
 	Definir i Como Entero
 	Para i = 0 Hasta largo - 1 Hacer
-		VectorC(i) = VectorB(i) - VectorA(i)
+		VectorD(i) = VectorB(i) - VectorA(i)
 	Fin Para
 	Escribir "Se ha restado el vector correctamente."
 FinSubProceso
 
-SubProceso MostrarVector (largo Por Referencia, VectorA Por Referencia, VectorB Por Referencia, VectorC Por Referencia)
+SubProceso MostrarVector (largo Por Referencia, VectorA Por Referencia, VectorB Por Referencia, VectorC Por Referencia, VectorD Por Referencia)
 	Definir i Como Entero
 	Definir ver Como Caracter
 	
@@ -92,11 +89,13 @@ SubProceso MostrarVector (largo Por Referencia, VectorA Por Referencia, VectorB 
 	Escribir "B.! Mostrar Vector B"
 	Escribir "C.! Mostrar Vector C con la suma de los vectores A y B"
 	Escribir "D.! Mostrar Vector C con la resta de los vectores A y B"
-	Escribir "E.! Salir"
+	Escribir "E.! Volver al menu principal"
+	Escribir "F.! Salir"
 	Leer ver
 	
 	Segun Mayusculas(ver) Hacer
 		"A":
+			Escribir "Vector A:"
 			Escribir Sin Saltar "["
 			Para i=0 Hasta largo - 1 Hacer
 				Si i = largo - 1 Entonces
@@ -106,14 +105,9 @@ SubProceso MostrarVector (largo Por Referencia, VectorA Por Referencia, VectorB 
 				Fin Si
 			Fin Para
 			Escribir "]"
-			Escribir "Eliga el Vector que desee mostrar:"
-			Escribir "1.! Mostrar Vector A"
-			Escribir "2.! Mostrar Vector B"
-			Escribir "3.! Mostrar Vector C con la suma de los vectores A y B"
-			Escribir "4.! Mostrar Vector C con la resta de los vectores A y B"
-			Escribir "5.! Salir"
-			Leer ver
+			MostrarVector(largo, VectorA, VectorB, VectorC, VectorD)
 		"B":
+			Escribir "Vector B:"
 			Escribir Sin Saltar "["
 			Para i=0 Hasta largo - 1 Hacer
 				Si i = largo - 1 Entonces
@@ -123,47 +117,46 @@ SubProceso MostrarVector (largo Por Referencia, VectorA Por Referencia, VectorB 
 				Fin Si
 			Fin Para
 			Escribir "]"
-			Escribir "Eliga el Vector que desee mostrar:"
-			Escribir "1.! Mostrar Vector A"
-			Escribir "2.! Mostrar Vector B"
-			Escribir "3.! Mostrar Vector C con la suma de los vectores A y B"
-			Escribir "4.! Mostrar Vector C con la resta de los vectores A y B"
-			Escribir "5.! Salir"
-			Leer ver
+			MostrarVector(largo, VectorA, VectorB, VectorC, VectorD)
 		"C":
 			Escribir "La suma de los vectores A y B es:"
 			Para i=0 Hasta largo - 1 Hacer
 				Escribir VectorA(i), " + ", VectorB(i), " = ", VectorC(i)
 			Fin Para
-			Escribir "Eliga el Vector que desee mostrar:"
-			Escribir "1.! Mostrar Vector A"
-			Escribir "2.! Mostrar Vector B"
-			Escribir "3.! Mostrar Vector C con la suma de los vectores A y B"
-			Escribir "4.! Mostrar Vector C con la resta de los vectores A y B"
-			Escribir "5.! Salir"
-			Leer ver
+			Escribir "Vector C (suma):"
+			Escribir Sin Saltar "["
+			Para i=0 Hasta largo - 1 Hacer
+				Si i = largo - 1 Entonces
+					Escribir Sin Saltar VectorC(i)
+				SiNo
+					Escribir Sin Saltar VectorC(i), ","
+				Fin Si
+			Fin Para
+			Escribir "]"
+			MostrarVector(largo, VectorA, VectorB, VectorC, VectorD)
 		"D":
 			Escribir "La resta de los vectores B y A es:"
 			Para i=0 Hasta largo - 1 Hacer
-				Escribir VectorB(i), " - ", VectorA(i), " = ", VectorC(i)
+				Escribir VectorB(i), " - ", VectorA(i), " = ", VectorD(i)
 			Fin Para
-			Escribir "Eliga el Vector que desee mostrar:"
-			Escribir "1.! Mostrar Vector A"
-			Escribir "2.! Mostrar Vector B"
-			Escribir "3.! Mostrar Vector C con la suma de los vectores A y B"
-			Escribir "4.! Mostrar Vector C con la resta de los vectores A y B"
-			Escribir "5.! Salir"
-			Leer ver
+			Escribir "Vector C (resta):"
+			Escribir Sin Saltar "["
+			Para i=0 Hasta largo - 1 Hacer
+				Si i = largo - 1 Entonces
+					Escribir Sin Saltar VectorD(i)
+				SiNo
+					Escribir Sin Saltar VectorD(i), ","
+				Fin Si
+			Fin Para
+			Escribir "]"
+			MostrarVector(largo, VectorA, VectorB, VectorC, VectorD)
 		"E":
+			menu(largo, VectorA, VectorB, VectorC, VectorD)
+		"F":
 			Escribir "Gracias vuelva pronto!"
 		De Otro Modo:
 			Escribir "Eliga una opcion válida:"
-			Escribir "1.! Mostrar Vector A"
-			Escribir "2.! Mostrar Vector B"
-			Escribir "3.! Mostrar Vector C con la suma de los vectores A y B"
-			Escribir "4.! Mostrar Vector C con la resta de los vectores A y B"
-			Escribir "5.! Salir"
-			Leer ver
+			MostrarVector(largo, VectorA, VectorB, VectorC, VectorD)
 	Fin Segun
 	
 FinSubProceso
