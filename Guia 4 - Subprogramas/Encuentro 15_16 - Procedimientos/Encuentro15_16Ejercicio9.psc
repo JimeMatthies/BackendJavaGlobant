@@ -13,38 +13,49 @@ Algoritmo Encuentro15_16Ejercicio9
 	
 FinAlgoritmo
 
-Funcion cantidad <- Buscar (frase Por Referencia, letra Por Valor)
-	
-	Definir cantidad, i, j Como Entero
-	cantidad = 0
-	Para i = 0 Hasta Longitud(frase) Hacer
-		Si Minusculas(letra) = Subcadena(Minusculas(frase), i, i) Entonces
-			cantidad = cantidad + 1
-		Fin Si
-	Fin Para
-	
-FinFuncion
-
 SubProceso EliminarRepetidas(frase Por Referencia)
 	
-	Definir i, contador, j Como Entero
+	Definir i, contador Como Entero
 	Definir codigo Como Cadena
 	codigo = ""
+	
 	Para i = 0 Hasta Longitud(frase) Hacer
 		Segun Subcadena(Minusculas(frase), i, i) Hacer
 			"a":
-				contador = Buscar(frase, Subcadena(frase, i, i))
-				Si contador > 1 Entonces
-					codigo = Concatenar(codigo, "D")
+				contador = Buscar(codigo, "a")
+				Si contador = 0 Entonces
+					codigo = Concatenar(codigo, Subcadena(frase, i, i))
+				SiNo
+					codigo = codigo
 				Fin Si
 			"e":
-				codigo = Concatenar(codigo, Subcadena(frase, i, i))
+				contador = Buscar(codigo, "e")
+				Si contador = 0 Entonces
+					codigo = Concatenar(codigo, Subcadena(frase, i, i))
+				SiNo
+					codigo = codigo
+				Fin Si
 			"i":
-				codigo = Concatenar(codigo, Subcadena(frase, i, i))
+				contador = Buscar(codigo, "i")
+				Si contador = 0 Entonces
+					codigo = Concatenar(codigo, Subcadena(frase, i, i))
+				SiNo
+					codigo = codigo
+				Fin Si
 			"o":
-				codigo = Concatenar(codigo, Subcadena(frase, i, i))
+				contador = Buscar(codigo, "o")
+				Si contador = 0 Entonces
+					codigo = Concatenar(codigo, Subcadena(frase, i, i))
+				SiNo
+					codigo = codigo
+				Fin Si
 			"u":
-				codigo = Concatenar(codigo, Subcadena(frase, i, i))
+				contador = Buscar(codigo, "u")
+				Si contador = 0 Entonces
+					codigo = Concatenar(codigo, Subcadena(frase, i, i))
+				SiNo
+					codigo = codigo
+				Fin Si
 			De Otro Modo:
 				codigo = Concatenar(codigo, Subcadena(frase, i, i))
 		Fin Segun
@@ -53,3 +64,13 @@ SubProceso EliminarRepetidas(frase Por Referencia)
 	Escribir codigo
 	
 FinSubProceso
+
+Funcion cantidad <- Buscar (frase Por Referencia, letra Por Valor)	
+	Definir cantidad, i, j Como Entero
+	cantidad = 0
+	Para i = 0 Hasta Longitud(frase) Hacer
+		Si Minusculas(letra) = Subcadena(Minusculas(frase), i, i) Entonces
+			cantidad = cantidad + 1
+		Fin Si
+	Fin Para
+FinFuncion
