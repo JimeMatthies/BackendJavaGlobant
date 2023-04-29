@@ -21,6 +21,7 @@ Durante el curso se utilizan distintos videos con ejemplos y tips para aprender 
 - [Guía 2](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%202%20-%20Estructuras%20Selectivas)
 - [Guía 3](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%203%20-%20Estructuras%20Repetitivas)
 - [Guía 4](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%204%20-%20Subprogramas)
+- [Guía 5](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%205%20-%20Arreglos/Encuentro%2018_19_20_21%20-%20Arreglos)
 
 <!-- CONTACTO -->
 
