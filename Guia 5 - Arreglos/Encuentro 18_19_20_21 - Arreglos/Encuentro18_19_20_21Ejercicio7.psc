@@ -9,11 +9,10 @@ Algoritmo Encuentro18_19_20_21Ejercicio7
 	
 	Escribir "Ingrese el tamaño de los vectores:"
 	Leer largo
-	Dimension VectorA(largo)
-	Dimension VectorB(largo)
+	Dimension VectorA(largo), VectorB(largo)
 	LlenarVector(largo, VectorA)
 	LlenarVector(largo, VectorB)
-	Escribir "Son los valores de los vectores iguales?"
+	Escribir "Ambos vectores son iguales?"
 	Escribir NumerosIdenticos(VectorA, VectorB, largo)
 	
 FinAlgoritmo
@@ -21,44 +20,29 @@ FinAlgoritmo
 SubProceso LlenarVector (largo Por Referencia, Vector Por Referencia)
 	Definir i Como Entero
 	Para i = 0 Hasta largo - 1 Hacer
-		Vector(i) = Aleatorio(-100, 100)
+		Vector(i) = Aleatorio(0, 10)
 	Fin Para
+	Escribir "Vector:"
+	Escribir Sin Saltar "["
+	Para i=0 Hasta largo - 1 Hacer
+		Si i = largo - 1 Entonces
+			Escribir Sin Saltar Vector(i)
+		SiNo
+			Escribir Sin Saltar Vector(i), ","
+		Fin Si
+	Fin Para
+	Escribir "]"
 	Escribir "Se ha llenado el vector correctamente."
 FinSubProceso
 
 Funcion iguales = NumerosIdenticos(VectorA Por Referencia, VectorB Por Referencia, largo Por Referencia)
-	Definir i, aux Como Entero
-	Definir igualesA, igualesB, iguales Como Logico
-	igualesA = Falso
-	igualesB = Falso
+	Definir i Como Entero
+	Definir iguales Como Logico
+	iguales = Verdadero
 	Para i = 0 Hasta largo - 1 Hacer
-		Si i = 0 Entonces
-			aux = VectorA(i)
-		SiNo
-			Si aux = VectorA(i) Entonces
-				igualesA = Verdadero
-			SiNo
-				igualesA = Falso
-			Fin Si
+		Si VectorA(i) <> VectorB(i) Entonces
+			iguales = Falso
 		Fin Si
 	Fin Para
-	
-	Para i = 0 Hasta largo - 1 Hacer
-		Si i = 0 Entonces
-			aux = VectorB(i)
-		SiNo
-			Si aux = VectorB(i) Entonces
-				igualesB = Verdadero
-			SiNo
-				igualesB = Falso
-			Fin Si
-		Fin Si
-	Fin Para
-	
-	Si igualesA = Verdadero y igualesB = Verdadero Entonces
-		iguales = Verdadero
-	SiNo
-		iguales = Falso
-	Fin Si
 FinFuncion
 	

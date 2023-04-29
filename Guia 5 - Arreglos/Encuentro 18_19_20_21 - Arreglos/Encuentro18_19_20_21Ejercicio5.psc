@@ -4,18 +4,15 @@ Algoritmo Encuentro18_19_20_21Ejercicio5
 	//usuario. A continuación, se deberá crear una función que reciba el vector y devuelva el valor
 	//más grande del vector.
 	
-	Definir largo, Vector, i, max Como Entero
+	Definir largo, Vector, i Como Entero
 	Escribir "Ingrese el tamaño del vector:"
 	Leer largo
 	Dimension Vector(largo)
-	max = 0
-	Escribir "Ingrese ", largo, " números:"
-	
+	Escribir "Ingrese ", largo, " números:"	
 	Para i = 0 Hasta largo - 1 Hacer
 		Escribir i + 1, "° número:"
 		Leer Vector(i)
 	Fin Para
-	
 	Escribir "Vector:"
 	Escribir Sin Saltar "["
 	Para i = 0 Hasta largo - 1 Hacer
@@ -26,9 +23,7 @@ Algoritmo Encuentro18_19_20_21Ejercicio5
 		Fin Si
 	Fin Para
 	Escribir "]"
-	
 	BuscarMax(Vector, largo)
-	
 FinAlgoritmo
 
 SubProceso BuscarMax (Vector Por Referencia, largo Por Referencia)
@@ -37,10 +32,7 @@ SubProceso BuscarMax (Vector Por Referencia, largo Por Referencia)
 	Para i = 0 Hasta largo - 1 Hacer
 		Si Vector(i) > max Entonces
 			max = Vector(i)
-		SiNo
-			max = max
 		Fin Si
 	Fin Para
-	
 	Escribir "El valor mas grande del Vector es ", max
 FinSubProceso
