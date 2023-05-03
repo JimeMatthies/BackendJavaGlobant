@@ -20,44 +20,52 @@ Algoritmo Encuentro18_19_20_21Ejercicio6
 	
 	Escribir "Ingrese una frase:"
 	Leer frase
-	
 	Para i = 0 Hasta 19 Hacer
 		vector(i) = Subcadena(frase, i, i)
 	Fin Para
 	
-	Escribir "Frase:"
-	Para i = 0 Hasta 19 Hacer
-		Si i = 19 Entonces
-			Escribir Sin Saltar " | ",vector(i), " | "
-		SiNo
-			Escribir Sin Saltar " | ", vector(i)
-		Fin Si
-	Fin Para
-	Escribir " "
+	Mostrarvector(vector)
 	
 	Escribir "Ingrese un caracter al arreglo:"
 	Leer letra
-	Escribir "En que poscion desea ingresarlo?"
+	Escribir "En que posción desea ingresarlo?"
 	Leer posicion
 	
-	Para i = 0 Hasta 19 Hacer
-		Si i = posicion Entonces
-			Si vector(i) = " " o vector(i) = "" Entonces
-				vector(i) = letra
-			SiNo
-				Escribir "La posicion se encuentra ocupada"
-			Fin Si
-		Fin Si
-	Fin Para
-	
-	Escribir "Frase:"
-	Para i = 0 Hasta 19 Hacer
-		Si i = 19 Entonces
-			Escribir Sin Saltar " | ",vector(i), " | "
+	Si posicion < 20 Y posicion > -1 Entonces
+		Si vector(posicion) = " " o vector(posicion) = "" Entonces
+			vector(posicion) = letra
+			Escribir "Se ingreso el caracter"
 		SiNo
-			Escribir Sin Saltar " | ", vector(i)
+			Escribir "La posición se encuentra ocupada"
 		Fin Si
-	Fin Para
-	Escribir " "
+	SiNo
+		Escribir "Posición inválida."
+	FinSi
+	
+	Mostrarvector(vector)
 	
 FinAlgoritmo
+
+Funcion Mostrarvector(vector)
+	Definir i Como Entero
+	Escribir Sin Saltar "Valores = "
+	Para i = 0 Hasta 19 Hacer
+		Escribir Sin Saltar "["
+		Si vector(i) == "" Entonces
+			Escribir Sin Saltar " "
+		SiNo
+			Escribir Sin Saltar vector(i)
+		FinSi
+		Si i < 10 Entonces
+			Escribir Sin Saltar "]"
+		SiNo
+			Escribir Sin Saltar " ]"
+		FinSi
+	FinPara
+	Escribir ""
+	Escribir Sin Saltar "Indices = "
+	Para i = 0 Hasta 19 Hacer
+		Escribir Sin Saltar "[", i, "]"
+	FinPara
+	Escribir ""
+FinFuncion
