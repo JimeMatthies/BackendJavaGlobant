@@ -82,6 +82,17 @@ SubProceso ComprobarMatrizMagica (Matriz Por Referencia, M)
 		FinPara
 	SiNo
 		Escribir "La matriz no es mágica."
+		Para i = 0 Hasta largo - 1 Hacer
+			Escribir Sin Saltar "[ S"
+			Escribir Sin Saltar i + 1
+			Escribir Sin Saltar " ]"
+		FinPara
+		Escribir ""
+		Para i = 0 Hasta largo - 1 Hacer
+			Escribir Sin Saltar "[ "
+			Escribir Sin Saltar analizador(i)
+			Escribir Sin Saltar " ]"
+		FinPara
 	Fin Si
 	
 FinSubProceso
