@@ -22,6 +22,7 @@ Durante el curso se utilizan distintos videos con ejemplos y tips para aprender 
 - [Guía 3](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%203%20-%20Estructuras%20Repetitivas)
 - [Guía 4](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%204%20-%20Subprogramas)
 - [Guía 5](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%205%20-%20Arreglos)
+- [Guía 6](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%206%20-%20Git%20con%20GitHub%201/Encuentro%2028%20-%20Git%20con%20Github%201)
 
 <!-- CONTACTO -->
 
