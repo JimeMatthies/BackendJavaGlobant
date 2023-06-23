@@ -18,5 +18,5 @@ Algoritmo leo_e_invierto
 			Escribir Sin Saltar valores(i), ", "
 		Fin Si
 	Fin Para
-	
+
 FinAlgoritmo
