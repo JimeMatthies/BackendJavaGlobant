@@ -8,4 +8,4 @@ Durante el curso se utilizan distintos videos con ejemplos y tips para aprender 
 
 ## Link de Descarga de Java:
 
-- [Java (JDK) + NetBeans 8.2 - Windows x64 (64-bit)](https://drive.google.com/file/d/1khs8QE8fHrTmmyXQ9kh0p0XG9aSI3KqL/view?usp=sharing)
+- [Instaladores Java 8u111 (JDK) + NetBeans 8.2](https://drive.google.com/file/d/1khs8QE8fHrTmmyXQ9kh0p0XG9aSI3KqL/view?usp=drive_link)
