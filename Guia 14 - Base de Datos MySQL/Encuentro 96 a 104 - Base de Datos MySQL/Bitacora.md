@@ -17,3 +17,46 @@ Revisar Instructivos para instalación de MySQL y Scripts.
 ## Importante!:
 
 Desde JUnit en adelante todos los codigos seran totalmente en ingles (variables, comentarios) con el fin de practicar el idioma dentro del mismo.
+
+## Respuestas Guía MySQL:
+
+### Actividad 1:
+
+1. ¿Qué es una base de datos?:
+
+- a) Un conjunto de datos organizados de manera aleatoria.
+- b) Una colección organizada de datos no estructurados.
+- c) Una tabla que posee filas y columnas que estructuran la información.
+- **d) Una colección organizada de información estructurada.** <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="13"/>
+
+
+
+2. ¿Qué es una tabla?:
+
+- a) Las tablas constituyen la base de datos y organizan la información.
+- b) Una tabla es una estructura organizada para almacenar información.
+- c) Una tabla posee filas y columnas, en apariencia, es similar a una hoja de cálculo.
+- **d) Todas son correctas.** <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="13"/>
+
+3. ¿Cuál de estos no es un tipo de base de datos?:
+
+- a) Base de datos no relacional
+- b) Base de datos relacional
+- **c) Base de datos imperativa** <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="13"/>
+- d) Base de datos orientada a objetos
+
+4. ¿Cuál de estas SI es una ventaja al trabajar el almacenamiento de los datos con bases de
+datos en lugar de hojas de cálculo?:
+
+- **a) Los datos están más protegidos.** <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="13"/>
+- b) Hay mayor repetición de datos.
+- c) Existe mayor eficiencia en la codificación, pero no en la captura.
+- d) Los datos dependen de las aplicaciones que los usan.
+
+5. En las bases de datos relacionales existe un elemento clave que identifica a cada registro
+o fila y la hace única, ¿cómo se llama ese elemento?:
+
+- a) Clave única
+- b) Clave foránea
+- **c) Llave primaria** <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" width="13"/>
+- d) Llave maestra
