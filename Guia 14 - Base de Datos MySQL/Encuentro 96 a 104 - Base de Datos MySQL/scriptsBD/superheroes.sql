@@ -37,10 +37,16 @@ INSERT INTO personajes VALUES(9, 'Bobby Drake', 'Ice Man', 140, '2 mil', 64, 122
 INSERT INTO personajes VALUES(10, 'Barry Allen', 'Flash', 160, '10 mil', 120, 168, 1956, 'Científico Forense', 2);
 INSERT INTO personajes VALUES(11, 'Bruce Wayne', 'Batman', 170, '500', 32, 47, 1939, 'Hombre de Negocios', 2);
 INSERT INTO personajes VALUES(12, 'Clarck Kent', 'Superman', 165, 'infinita', 120, 182, 1948, 'Reportero', 2);
-INSERT INTO personajes VALUES(13, 'diana Prince', 'Mujer Maravilla', 160, 'infinita', 95, 127, 1949, 'Princesa Guerrera', 2);
+INSERT INTO personajes VALUES(13, 'Diana Prince', 'Mujer Maravilla', 160, 'infinita', 95, 127, 1949, 'Princesa Guerrera', 2);
 
 UPDATE personajes SET aparicion = 1938 WHERE id_personaje = 12;
 
 DELETE FROM personajes WHERE personaje = 'Iron Man';
+
+SELECT nombre_real FROM personajes;
+
+SELECT nombre_real FROM personajes WHERE nombre_real LIKE 'b%';
+
+SELECT * FROM personajes ORDER BY inteligencia DESC;
 
 DROP DATABASE IF EXISTS superheroes;

@@ -9,7 +9,6 @@ id_depto INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   nombre_jefe_depto CHAR(30) NULL
 );
 
-
 CREATE TABLE empleados (
   id_emp INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   nombre CHAR(30) NOT NULL,
@@ -22,7 +21,6 @@ CREATE TABLE empleados (
   id_depto INT UNSIGNED NOT NULL,
   FOREIGN KEY (id_depto) REFERENCES departamentos(id_depto)
   );
-
 
 -- Insertar datos en la tabla `departamentos`
 
@@ -67,3 +65,31 @@ INSERT INTO `empleados` VALUES (338,'Abel Gómez','M','1939-12-24','2000-10-01',
 INSERT INTO `empleados` VALUES (689,'Mario Llano','M','1945-08-30','1990-05-16',2250000,2500000,'Vendedor',2300);
 INSERT INTO `empleados` VALUES (785,'Joaquín Rosas','M','1947-07-07','1990-05-16',2250000,2500000,'Vendedor',2200);
 INSERT INTO `empleados` VALUES (898,'Iván Duarte','M','1955-08-12','1998-05-16',1050000,200000,'Mecánico',4100);
+
+-- SELECT * FROM empleados;
+-- SELECT * FROM departamentos;
+-- SELECT DISTINCT nombre_depto FROM departamentos;
+-- SELECT nombre, sal_emp FROM empleados;
+-- SELECT comision_emp FROM empleados;
+-- SELECT * FROM empleados WHERE cargo_emp = 'Secretaria';
+-- SELECT * FROM empleados WHERE cargo_emp = 'Vendedor' ORDER BY nombre ASC;
+-- SELECT nombre, cargo_emp FROM empleados ORDER BY sal_emp ASC;
+-- SELECT nombre_jefe_depto FROM departamentos WHERE ciudad = 'Ciudad Real';
+-- SELECT nombre AS Nombre, cargo_emp AS Cargo FROM empleados;
+-- SELECT sal_emp, comision_emp FROM empleados WHERE id_depto = 2000 ORDER BY comision_emp ASC;
+-- SELECT nombre AS Nombre, (sal_emp + comision_emp) + 500 AS 'Total a Pagar' FROM Empleados WHERE id_depto = 3000 ORDER BY nombre ASC;
+-- SELECT * FROM empleados WHERE nombre LIKE 'j%';
+-- SELECT nombre AS 'Nombre', sal_emp AS 'Salario', comision_emp AS 'Comision', (sal_emp + comision_emp) AS 'Salario Total' FROM empleados WHERE comision_emp > 1000;
+-- SELECT nombre AS 'Nombre', sal_emp AS 'Salario', comision_emp AS 'Comision', (sal_emp + comision_emp) AS 'Salario Total' FROM empleados WHERE comision_emp = 0;
+-- SELECT * FROM empleados WHERE comision_emp > sal_emp;
+-- SELECT * FROM empleados WHERE comision_emp <= (sal_emp * 0.30);
+-- SELECT * FROM empleados WHERE nombre NOT LIKE '%ma%';
+-- SELECT nombre_depto FROM departamentos WHERE nombre_depto IN ('Ventas', 'Investigacion', 'Mantenimiento');
+-- SELECT nombre_depto FROM departamentos WHERE nombre_depto NOT IN ('Ventas', 'Investigacion', 'Mantenimiento');
+-- SELECT MAX(sal_emp) FROM empleados;
+-- SELECT nombre FROM empleados ORDER BY nombre DESC LIMIT 1;
+-- SELECT MAX(sal_emp) AS 'Salario más alto', MIN(sal_emp) AS 'Salario más bajo', (MAX(sal_emp) - MIN(sal_emp)) AS 'Diferencia' FROM empleados;
+-- SELECT nombre_depto, ROUND(AVG(sal_emp)) AS 'Salario Promedio' FROM empleados LEFT JOIN departamentos ON empleados.id_depto = departamentos.id_depto GROUP BY nombre_depto; 
+-- SELECT nombre_depto AS 'Departamento' , COUNT(id_emp) AS 'N° de Empleados' FROM empleados LEFT JOIN departamentos ON empleados.id_depto = departamentos.id_depto GROUP BY nombre_depto HAVING COUNT(id_emp) > 3;
+-- SELECT nombre_depto AS 'Departamento' , COUNT(id_emp) AS 'N° de Empleados' FROM empleados LEFT JOIN departamentos ON empleados.id_depto = departamentos.id_depto GROUP BY nombre_depto HAVING COUNT(id_emp) = 0;
+-- SELECT * FROM empleados WHERE sal_emp >= (SELECT ROUND(AVG(sal_emp)) FROM empleados) ORDER BY id_depto;
