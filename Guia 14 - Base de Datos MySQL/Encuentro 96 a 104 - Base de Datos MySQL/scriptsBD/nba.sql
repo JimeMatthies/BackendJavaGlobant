@@ -4,7 +4,6 @@ CREATE DATABASE IF NOT EXISTS nba;
 #seleccionar la base de datos
 USE nba;
 
-
 CREATE TABLE IF NOT EXISTS equipos (
   Nombre varchar(20) NOT NULL,
   Ciudad varchar(20) DEFAULT NULL,
@@ -18558,3 +18557,13 @@ INSERT INTO partidos VALUES (15657,'Suns','Hornets',68,65,'07/08');
 INSERT INTO partidos VALUES (15658,'Suns','Spurs',105,157,'07/08');
 INSERT INTO partidos VALUES (15659,'Suns','Rockets',105,57,'07/08');
 INSERT INTO partidos VALUES (15660,'Suns','Mavericks',69,144,'07/08');
+
+-- SELECT COUNT(*) FROM estadisticas GROUP BY Asistencias_por_partido ORDER BY Asistencias_por_partido DESC LIMIT 1;
+-- SELECT SUM(Peso) FROM jugadores INNER JOIN equipos ON equipos.Nombre = jugadores.Nombre_Equipo WHERE Conferencia LIKE 'East' AND Posicion LIKE '%c%';
+-- SELECT COUNT(Nombre) FROM jugadores INNER JOIN estadisticas ON estadisticas.jugador = jugadores.codigo WHERE Asistencias_por_partido > (SELECT COUNT(codigo) FROM jugadores WHERE Nombre_Equipo LIKE 'Heat');
+-- SELECT COUNT(temporada) FROM partidos WHERE temporada LIKE '%99%';
+-- SELECT COUNT(*)/(SELECT COUNT(*) FROM jugadores WHERE Peso >= 195) + 0.9945 FROM jugadores INNER JOIN equipos ON equipos.Nombre = jugadores.Nombre_Equipo WHERE Procedencia LIKE 'Michigan' AND Conferencia = 'West';
+-- SELECT FLOOR(AVG(Puntos_por_partido)+COUNT(Asistencias_por_partido)+SUM(Tapones_por_partido)) FROM estadisticas INNER JOIN jugadores ON estadisticas.jugador = jugadores.codigo INNER JOIN equipos ON jugadores.Nombre_equipo = equipos.Nombre WHERE Division = 'Central';
+-- SELECT ROUND(Tapones_por_partido) FROM estadisticas INNER JOIN jugadores ON estadisticas.jugador = jugadores.codigo  WHERE Temporada = '00/01' AND Nombre = 'Corey Maggette';
+-- SELECT FLOOR(SUM(Puntos_por_partido)) FROM estadisticas INNER JOIN jugadores ON estadisticas.jugador = jugadores.codigo WHERE Procedencia = 'Argentina';
+
