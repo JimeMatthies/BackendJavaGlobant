@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="AsociacionInversa.Entity">
+  <ClassDiagramComponents>
+    <Class name="Car" package="AsociacionInversa.Entity" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="owner" type="Person" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Person" package="AsociacionInversa.Entity" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="cars" type="List&lt;Car&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="cars" source="AsociacionInversa.Entity.Person" target="AsociacionInversa.Entity.Car" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Car&gt;"/>
+    <HasRelation name="owner" source="AsociacionInversa.Entity.Car" target="AsociacionInversa.Entity.Person" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

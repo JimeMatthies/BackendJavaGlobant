@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="AsociacionReflexiva.Entity">
+  <ClassDiagramComponents>
+    <Class name="Person" package="AsociacionReflexiva.Entity" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="friends" type="List&lt;Person&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="friends" source="AsociacionReflexiva.Entity.Person" target="AsociacionReflexiva.Entity.Person" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Person&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="AsociacionAgregacion.Entity">
+  <ClassDiagramComponents>
+    <Class name="Business" package="AsociacionAgregacion.Entity" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="clients" type="List&lt;Customer&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Customer" package="AsociacionAgregacion.Entity" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="clients" source="AsociacionAgregacion.Entity.Business" target="AsociacionAgregacion.Entity.Customer" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Customer&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="AsociacionComposicion.Entity">
+  <ClassDiagramComponents>
+    <Class name="Business" package="AsociacionComposicion.Entity" visibility="public" xPosition="72.0" yPosition="102.0">
+      <Fields>
+        <Field name="staff" type="List&lt;Employee&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Employee" package="AsociacionComposicion.Entity" visibility="public" xPosition="350.0" yPosition="102.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="staff" source="AsociacionComposicion.Entity.Business" target="AsociacionComposicion.Entity.Employee" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
