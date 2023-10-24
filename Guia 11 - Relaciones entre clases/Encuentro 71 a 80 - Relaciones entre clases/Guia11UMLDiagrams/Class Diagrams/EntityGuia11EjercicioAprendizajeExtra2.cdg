@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entity">
+  <ClassDiagramComponents>
+    <Class name="Cinema" package="Entity" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="movie" type="Movie" visibility="private"/>
+        <Field name="auditorium" type="ArrayList&lt;ArrayList&lt;Seat&gt;&gt;" visibility="private"/>
+        <Field name="ticket" type="Double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Movie" name="movie"/>
+          <Argument type="ArrayList&lt;ArrayList&lt;Seat&gt;&gt;" name="auditorium"/>
+          <Argument type="Double" name="ticket"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMovie" returnType="Movie" visibility="public"/>
+        <Method name="setMovie" returnType="void" visibility="public">
+          <Argument type="Movie" name="movie"/>
+        </Method>
+        <Method name="getAuditorium" returnType="ArrayList&lt;ArrayList&lt;Seat&gt;&gt;" visibility="public"/>
+        <Method name="setAuditorium" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;ArrayList&lt;Seat&gt;&gt;" name="auditorium"/>
+        </Method>
+        <Method name="getTicket" returnType="Double" visibility="public"/>
+        <Method name="setTicket" returnType="void" visibility="public">
+          <Argument type="Double" name="ticket"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Movie" package="Entity" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="title" type="String" visibility="private"/>
+        <Field name="minutes" type="Integer" visibility="private"/>
+        <Field name="rating" type="Integer" visibility="private"/>
+        <Field name="director" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="title"/>
+          <Argument type="Integer" name="minutes"/>
+          <Argument type="Integer" name="rating"/>
+          <Argument type="String" name="director"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTitle" returnType="String" visibility="public"/>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="getMinutes" returnType="Integer" visibility="public"/>
+        <Method name="setMinutes" returnType="void" visibility="public">
+          <Argument type="Integer" name="minutes"/>
+        </Method>
+        <Method name="getRating" returnType="Integer" visibility="public"/>
+        <Method name="setRating" returnType="void" visibility="public">
+          <Argument type="Integer" name="rating"/>
+        </Method>
+        <Method name="getDirector" returnType="String" visibility="public"/>
+        <Method name="setDirector" returnType="void" visibility="public">
+          <Argument type="String" name="director"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Seat" package="Entity" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="mark" type="Character" visibility="private"/>
+        <Field name="num" type="Integer" visibility="private"/>
+        <Field name="occupied" type="Boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Character" name="mark"/>
+          <Argument type="Integer" name="num"/>
+          <Argument type="Boolean" name="occupied"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMark" returnType="Character" visibility="public"/>
+        <Method name="setMark" returnType="void" visibility="public">
+          <Argument type="Character" name="mark"/>
+        </Method>
+        <Method name="getNum" returnType="Integer" visibility="public"/>
+        <Method name="setNum" returnType="void" visibility="public">
+          <Argument type="Integer" name="num"/>
+        </Method>
+        <Method name="getOccupied" returnType="Boolean" visibility="public"/>
+        <Method name="setOccupied" returnType="void" visibility="public">
+          <Argument type="Boolean" name="occupied"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Spectator" package="Entity" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="age" type="Integer" visibility="private"/>
+        <Field name="budget" type="Double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Integer" name="age"/>
+          <Argument type="Double" name="budget"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getAge" returnType="Integer" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="Integer" name="age"/>
+        </Method>
+        <Method name="getBudget" returnType="Double" visibility="public"/>
+        <Method name="setBudget" returnType="void" visibility="public">
+          <Argument type="Double" name="budget"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="movie" source="Entity.Cinema" target="Entity.Movie" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entity.Cinema" target="Entity.Seat" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entity.Cinema" target="Entity.Movie" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="auditorium" source="Entity.Cinema" target="Entity.Seat" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;ArrayList&lt;Seat&gt;&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

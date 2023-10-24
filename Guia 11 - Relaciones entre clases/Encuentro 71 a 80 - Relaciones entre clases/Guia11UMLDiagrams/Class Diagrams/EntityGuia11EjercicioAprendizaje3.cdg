@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entity">
+  <ClassDiagramComponents>
+    <Class name="Card" package="Entity" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="number" type="Integer" visibility="private"/>
+        <Field name="suit" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="number"/>
+          <Argument type="String" name="suit"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumber" returnType="Integer" visibility="public"/>
+        <Method name="setNumber" returnType="void" visibility="public">
+          <Argument type="Integer" name="number"/>
+        </Method>
+        <Method name="getSuit" returnType="String" visibility="public"/>
+        <Method name="setSuit" returnType="void" visibility="public">
+          <Argument type="String" name="suit"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Deck" package="Entity" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="drawPile" type="List&lt;Card&gt;" visibility="private"/>
+        <Field name="discardPile" type="List&lt;Card&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="List&lt;Card&gt;" name="drawPile"/>
+          <Argument type="List&lt;Card&gt;" name="discardPile"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="newDeck" returnType="void" visibility="private"/>
+        <Method name="getDrawPile" returnType="List&lt;Card&gt;" visibility="public"/>
+        <Method name="setDrawPile" returnType="void" visibility="public">
+          <Argument type="List&lt;Card&gt;" name="drawPile"/>
+        </Method>
+        <Method name="getDiscardPile" returnType="List&lt;Card&gt;" visibility="public"/>
+        <Method name="setDiscardPile" returnType="void" visibility="public">
+          <Argument type="List&lt;Card&gt;" name="discardPile"/>
+        </Method>
+        <Method name="shuffleDeck" returnType="void" visibility="public"/>
+        <Method name="nextCard" returnType="Card" visibility="public"/>
+        <Method name="cardsAvailable" returnType="Integer" visibility="public"/>
+        <Method name="dealCards" returnType="List&lt;Card&gt;" visibility="public">
+          <Argument type="Integer" name="amount"/>
+        </Method>
+        <Method name="showDiscardPile" returnType="void" visibility="public"/>
+        <Method name="showDrawPile" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="drawPile" source="Entity.Deck" target="Entity.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Card&gt;"/>
+    <UseRelation source="Entity.Deck" target="Entity.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="discardPile" source="Entity.Deck" target="Entity.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Card&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -16,9 +16,9 @@ public class Guia11EjercicioAprendizaje1 {
 
     public static void main(String[] args) {
 
-        Dog d1 = new Dog("Nala", "Cocker", 15, 20.5);
-        Dog d2 = new Dog("Coca", "Labrador", 13, 30.3);
-        Dog d3 = new Dog("Milky", "Labrador", 1, 35.2);
+        Dog d1 = new Dog("Nala", "Cocker", 15, "Small");
+        Dog d2 = new Dog("Coca", "Labrador", 13, "Medium");
+        Dog d3 = new Dog("Milky", "Labrador", 1, "Big");
         Person p1 = new Person("Jimena", "Veliz", 66, 76947333, d1);
         Person p2 = new Person("Jime", "Matthies", 36, 166247985, d2);
         Person p3 = new Person("Adolfo", "Matthies", 61, 76974357, d3);

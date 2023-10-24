@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entity">
+  <ClassDiagramComponents>
+    <Class name="Student" package="Entity" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="fullname" type="String" visibility="private"/>
+        <Field name="ssn" type="String" visibility="private"/>
+        <Field name="amountOfVotes" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="fullname"/>
+          <Argument type="String" name="ssn"/>
+          <Argument type="Integer" name="amountOfVotes"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="fullname"/>
+          <Argument type="String" name="ssn"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFullname" returnType="String" visibility="public"/>
+        <Method name="setFullname" returnType="void" visibility="public">
+          <Argument type="String" name="fullname"/>
+        </Method>
+        <Method name="getSsn" returnType="String" visibility="public"/>
+        <Method name="setSsn" returnType="void" visibility="public">
+          <Argument type="String" name="ssn"/>
+        </Method>
+        <Method name="getAmountOfVotes" returnType="Integer" visibility="public"/>
+        <Method name="setAmountOfVotes" returnType="void" visibility="public">
+          <Argument type="Integer" name="amountOfVotes"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Vote" package="Entity" visibility="public" xPosition="465.0" yPosition="54.0">
+      <Fields>
+        <Field name="voter" type="Student" visibility="private"/>
+        <Field name="poll" type="List&lt;Student&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Student" name="voter"/>
+          <Argument type="List&lt;Student&gt;" name="voted"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getVoter" returnType="Student" visibility="public"/>
+        <Method name="setVoter" returnType="void" visibility="public">
+          <Argument type="Student" name="voter"/>
+        </Method>
+        <Method name="getVoted" returnType="List&lt;Student&gt;" visibility="public"/>
+        <Method name="setVoted" returnType="void" visibility="public">
+          <Argument type="List&lt;Student&gt;" name="voted"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="poll" source="Entity.Vote" target="Entity.Student" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Student&gt;"/>
+    <UseRelation source="Entity.Vote" target="Entity.Student" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="voter" source="Entity.Vote" target="Entity.Student" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

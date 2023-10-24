@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entity">
+  <ClassDiagramComponents>
+    <Class name="Client" package="Entity" visibility="public" xPosition="103.0" yPosition="4.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="lastname" type="String" visibility="private"/>
+        <Field name="ssn" type="String" visibility="private"/>
+        <Field name="mail" type="String" visibility="private"/>
+        <Field name="address" type="String" visibility="private"/>
+        <Field name="phone" type="String" visibility="private"/>
+        <Field name="vehicles" type="List&lt;Vehicle&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastname"/>
+          <Argument type="String" name="ssn"/>
+          <Argument type="String" name="mail"/>
+          <Argument type="String" name="address"/>
+          <Argument type="String" name="phone"/>
+          <Argument type="List&lt;Vehicle&gt;" name="vehicles"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getLastname" returnType="String" visibility="public"/>
+        <Method name="setLastname" returnType="void" visibility="public">
+          <Argument type="String" name="lastname"/>
+        </Method>
+        <Method name="getSsn" returnType="String" visibility="public"/>
+        <Method name="setSsn" returnType="void" visibility="public">
+          <Argument type="String" name="ssn"/>
+        </Method>
+        <Method name="getMail" returnType="String" visibility="public"/>
+        <Method name="setMail" returnType="void" visibility="public">
+          <Argument type="String" name="mail"/>
+        </Method>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="setAddress" returnType="void" visibility="public">
+          <Argument type="String" name="address"/>
+        </Method>
+        <Method name="getPhone" returnType="String" visibility="public"/>
+        <Method name="setPhone" returnType="void" visibility="public">
+          <Argument type="String" name="phone"/>
+        </Method>
+        <Method name="getVehicles" returnType="List&lt;Vehicle&gt;" visibility="public"/>
+        <Method name="setVehicles" returnType="void" visibility="public">
+          <Argument type="List&lt;Vehicle&gt;" name="vehicles"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Fee" package="Entity" visibility="public" xPosition="155.0" yPosition="103.0">
+      <Fields>
+        <Field name="number" type="Integer" visibility="private"/>
+        <Field name="value" type="Double" visibility="private"/>
+        <Field name="paid" type="Boolean" visibility="private"/>
+        <Field name="feeDueDate" type="LocalDate" visibility="private"/>
+        <Field name="methodOfPayment" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="number"/>
+          <Argument type="Double" name="value"/>
+          <Argument type="Boolean" name="paid"/>
+          <Argument type="LocalDate" name="feeDueDate"/>
+          <Argument type="String" name="methodOfPayment"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumber" returnType="Integer" visibility="public"/>
+        <Method name="setNumber" returnType="void" visibility="public">
+          <Argument type="Integer" name="number"/>
+        </Method>
+        <Method name="getValue" returnType="Double" visibility="public"/>
+        <Method name="setValue" returnType="void" visibility="public">
+          <Argument type="Double" name="value"/>
+        </Method>
+        <Method name="getPaid" returnType="Boolean" visibility="public"/>
+        <Method name="setPaid" returnType="void" visibility="public">
+          <Argument type="Boolean" name="paid"/>
+        </Method>
+        <Method name="getFeeDueDate" returnType="LocalDate" visibility="public"/>
+        <Method name="setFeeDueDate" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="feeDueDate"/>
+        </Method>
+        <Method name="getMethodOfPayment" returnType="String" visibility="public"/>
+        <Method name="setMethodOfPayment" returnType="void" visibility="public">
+          <Argument type="String" name="methodOfPayment"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Policy" package="Entity" visibility="public" xPosition="-1092.0" yPosition="-203.0">
+      <Fields>
+        <Field name="number" type="Integer" visibility="private"/>
+        <Field name="startDate" type="LocalDate" visibility="private"/>
+        <Field name="endDate" type="LocalDate" visibility="private"/>
+        <Field name="amountOfFees" type="Integer" visibility="private"/>
+        <Field name="methodOfPayment" type="String" visibility="private"/>
+        <Field name="insuranceValue" type="Double" visibility="private"/>
+        <Field name="coverHail" type="Boolean" visibility="private"/>
+        <Field name="maxHail" type="Double" visibility="private"/>
+        <Field name="typeOfInsurance" type="String" visibility="private"/>
+        <Field name="fees" type="List&lt;Fee&gt;" visibility="private"/>
+        <Field name="owner" type="Client" visibility="private"/>
+        <Field name="vehicle" type="Vehicle" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="number"/>
+          <Argument type="LocalDate" name="startDate"/>
+          <Argument type="LocalDate" name="endDate"/>
+          <Argument type="Integer" name="amountOfFees"/>
+          <Argument type="String" name="methodOfPayment"/>
+          <Argument type="Double" name="insuranceValue"/>
+          <Argument type="Boolean" name="coverHail"/>
+          <Argument type="Double" name="maxHail"/>
+          <Argument type="String" name="typeOfInsurance"/>
+          <Argument type="List&lt;Fee&gt;" name="fees"/>
+          <Argument type="Client" name="owner"/>
+          <Argument type="Vehicle" name="vehicle"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNumber" returnType="Integer" visibility="public"/>
+        <Method name="setNumber" returnType="void" visibility="public">
+          <Argument type="Integer" name="number"/>
+        </Method>
+        <Method name="getStartDate" returnType="LocalDate" visibility="public"/>
+        <Method name="setStartDate" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="startDate"/>
+        </Method>
+        <Method name="getEndDate" returnType="LocalDate" visibility="public"/>
+        <Method name="setEndDate" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="endDate"/>
+        </Method>
+        <Method name="getAmountOfFees" returnType="Integer" visibility="public"/>
+        <Method name="setAmountOfFees" returnType="void" visibility="public">
+          <Argument type="Integer" name="amountOfFees"/>
+        </Method>
+        <Method name="getMethodOfPayment" returnType="String" visibility="public"/>
+        <Method name="setMethodOfPayment" returnType="void" visibility="public">
+          <Argument type="String" name="methodOfPayment"/>
+        </Method>
+        <Method name="getInsuranceValue" returnType="Double" visibility="public"/>
+        <Method name="setInsuranceValue" returnType="void" visibility="public">
+          <Argument type="Double" name="insuranceValue"/>
+        </Method>
+        <Method name="getCoverHail" returnType="Boolean" visibility="public"/>
+        <Method name="setCoverHail" returnType="void" visibility="public">
+          <Argument type="Boolean" name="coverHail"/>
+        </Method>
+        <Method name="getMaxHail" returnType="Double" visibility="public"/>
+        <Method name="setMaxHail" returnType="void" visibility="public">
+          <Argument type="Double" name="maxHail"/>
+        </Method>
+        <Method name="getTypeOfInsurance" returnType="String" visibility="public"/>
+        <Method name="setTypeOfInsurance" returnType="void" visibility="public">
+          <Argument type="String" name="typeOfInsurance"/>
+        </Method>
+        <Method name="getFees" returnType="List&lt;Fee&gt;" visibility="public"/>
+        <Method name="setFees" returnType="void" visibility="public">
+          <Argument type="List&lt;Fee&gt;" name="fees"/>
+        </Method>
+        <Method name="getOwner" returnType="Client" visibility="public"/>
+        <Method name="setOwner" returnType="void" visibility="public">
+          <Argument type="Client" name="owner"/>
+        </Method>
+        <Method name="getVehicle" returnType="Vehicle" visibility="public"/>
+        <Method name="setVehicle" returnType="void" visibility="public">
+          <Argument type="Vehicle" name="vehicle"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Vehicle" package="Entity" visibility="public" xPosition="-188.0" yPosition="-396.0">
+      <Fields>
+        <Field name="manufacter" type="String" visibility="private"/>
+        <Field name="model" type="String" visibility="private"/>
+        <Field name="year" type="Integer" visibility="private"/>
+        <Field name="egineNumber" type="String" visibility="private"/>
+        <Field name="chasisNumber" type="String" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="type" type="String" visibility="private"/>
+        <Field name="owner" type="Client" visibility="private"/>
+        <Field name="insurance" type="Policy" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="manufacter"/>
+          <Argument type="String" name="model"/>
+          <Argument type="Integer" name="year"/>
+          <Argument type="String" name="egineNumber"/>
+          <Argument type="String" name="chasisNumber"/>
+          <Argument type="String" name="color"/>
+          <Argument type="String" name="type"/>
+          <Argument type="Client" name="owner"/>
+          <Argument type="Policy" name="insurance"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getManufacter" returnType="String" visibility="public"/>
+        <Method name="setManufacter" returnType="void" visibility="public">
+          <Argument type="String" name="manufacter"/>
+        </Method>
+        <Method name="getModel" returnType="String" visibility="public"/>
+        <Method name="setModel" returnType="void" visibility="public">
+          <Argument type="String" name="model"/>
+        </Method>
+        <Method name="getYear" returnType="Integer" visibility="public"/>
+        <Method name="setYear" returnType="void" visibility="public">
+          <Argument type="Integer" name="year"/>
+        </Method>
+        <Method name="getEgineNumber" returnType="String" visibility="public"/>
+        <Method name="setEgineNumber" returnType="void" visibility="public">
+          <Argument type="String" name="egineNumber"/>
+        </Method>
+        <Method name="getChasisNumber" returnType="String" visibility="public"/>
+        <Method name="setChasisNumber" returnType="void" visibility="public">
+          <Argument type="String" name="chasisNumber"/>
+        </Method>
+        <Method name="getColor" returnType="String" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="String" name="color"/>
+        </Method>
+        <Method name="getType" returnType="String" visibility="public"/>
+        <Method name="setType" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+        </Method>
+        <Method name="getOwner" returnType="Client" visibility="public"/>
+        <Method name="setOwner" returnType="void" visibility="public">
+          <Argument type="Client" name="owner"/>
+        </Method>
+        <Method name="getInsurance" returnType="Policy" visibility="public"/>
+        <Method name="setInsurance" returnType="void" visibility="public">
+          <Argument type="Policy" name="insurance"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Entity.Policy" target="Entity.Vehicle" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="vehicle" source="Entity.Policy" target="Entity.Vehicle" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entity.Policy" target="Entity.Fee" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fees" source="Entity.Policy" target="Entity.Fee" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Fee&gt;"/>
+    <UseRelation source="Entity.Vehicle" target="Entity.Policy" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entity.Vehicle" target="Entity.Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="owner" source="Entity.Vehicle" target="Entity.Client" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entity.Policy" target="Entity.Client" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entity.Client" target="Entity.Vehicle" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="owner" source="Entity.Policy" target="Entity.Client" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="vehicles" source="Entity.Client" target="Entity.Vehicle" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Vehicle&gt;"/>
+    <HasRelation name="insurance" source="Entity.Vehicle" target="Entity.Policy" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

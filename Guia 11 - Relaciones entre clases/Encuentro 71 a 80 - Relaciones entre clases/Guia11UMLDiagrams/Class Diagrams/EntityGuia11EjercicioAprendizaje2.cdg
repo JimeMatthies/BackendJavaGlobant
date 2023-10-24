@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entity">
+  <ClassDiagramComponents>
+    <Class name="Game" package="Entity" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="players" type="List&lt;Player&gt;" visibility="private"/>
+        <Field name="waterGun" type="WaterGun" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="List&lt;Player&gt;" name="players"/>
+          <Argument type="WaterGun" name="waterGun"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPlayers" returnType="List&lt;Player&gt;" visibility="public"/>
+        <Method name="setPlayers" returnType="void" visibility="public">
+          <Argument type="List&lt;Player&gt;" name="players"/>
+        </Method>
+        <Method name="getWaterGun" returnType="WaterGun" visibility="public"/>
+        <Method name="setWaterGun" returnType="void" visibility="public">
+          <Argument type="WaterGun" name="waterGun"/>
+        </Method>
+        <Method name="startGame" returnType="void" visibility="public">
+          <Argument type="List&lt;Player&gt;" name="players"/>
+          <Argument type="WaterGun" name="waterGun"/>
+        </Method>
+        <Method name="round" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Player" package="Entity" visibility="public" xPosition="373.0" yPosition="331.0">
+      <Fields>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="wet" type="Boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="isWet" returnType="Boolean" visibility="public"/>
+        <Method name="setWet" returnType="void" visibility="public">
+          <Argument type="Boolean" name="wet"/>
+        </Method>
+        <Method name="shot" returnType="Boolean" visibility="public">
+          <Argument type="WaterGun" name="wg"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="WaterGun" package="Entity" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="currentPosition" type="Integer" visibility="private"/>
+        <Field name="waterPosition" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="currentPosition"/>
+          <Argument type="Integer" name="waterPosition"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCurrentPosition" returnType="Integer" visibility="public"/>
+        <Method name="setCurrentPosition" returnType="void" visibility="public">
+          <Argument type="Integer" name="currentPosition"/>
+        </Method>
+        <Method name="getWaterPosition" returnType="Integer" visibility="public"/>
+        <Method name="setWaterPosition" returnType="void" visibility="public">
+          <Argument type="Integer" name="waterPosition"/>
+        </Method>
+        <Method name="loadGun" returnType="void" visibility="public"/>
+        <Method name="wet" returnType="Boolean" visibility="public"/>
+        <Method name="nextJet" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Entity.Game" target="Entity.Player" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="waterGun" source="Entity.Game" target="Entity.WaterGun" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entity.Player" target="Entity.WaterGun" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="players" source="Entity.Game" target="Entity.Player" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Player&gt;"/>
+    <UseRelation source="Entity.Game" target="Entity.WaterGun" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
