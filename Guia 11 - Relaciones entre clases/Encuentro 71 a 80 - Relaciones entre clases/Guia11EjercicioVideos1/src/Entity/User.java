@@ -23,6 +23,12 @@ public class User {
     public User() {
     }
 
+    public User(String name, String lastname, Integer ssn) {
+        this.name = name;
+        this.lastname = lastname;
+        this.ssn = ssn;
+    }
+    
     public User(String name, String lastname, String country, Integer ssn, LocalDate birthdate, Gender gender, Pet favoritePet, List<Pet> pets) {
         this.name = name;
         this.lastname = lastname;
