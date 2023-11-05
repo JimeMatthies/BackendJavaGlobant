@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entities">
+  <ClassDiagramComponents>
+    <Class name="Animal" package="entities" visibility="public" isAbstract="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="paws" type="Integer" visibility="protected"/>
+        <Field name="tail" type="boolean" visibility="protected"/>
+        <Field name="yearsLiving" type="Integer" visibility="protected"/>
+        <Field name="energy" type="Double" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="paws"/>
+          <Argument type="boolean" name="tail"/>
+          <Argument type="Integer" name="yearsLiving"/>
+          <Argument type="Double" name="energy"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calculateAge" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="makeNoise" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cat" package="entities" visibility="public" isFinal="true" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="catBreed" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="catBreed"/>
+          <Argument type="Integer" name="paws"/>
+          <Argument type="boolean" name="tail"/>
+          <Argument type="Integer" name="yearsLiving"/>
+          <Argument type="Double" name="energy"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCatBreed" returnType="String" visibility="public"/>
+        <Method name="setCatBreed" returnType="void" visibility="public">
+          <Argument type="String" name="catBreed"/>
+        </Method>
+        <Method name="getPaws" returnType="Integer" visibility="public"/>
+        <Method name="setPaws" returnType="void" visibility="public">
+          <Argument type="Integer" name="paws"/>
+        </Method>
+        <Method name="isTail" returnType="boolean" visibility="public"/>
+        <Method name="setTail" returnType="void" visibility="public">
+          <Argument type="boolean" name="tail"/>
+        </Method>
+        <Method name="getYearsLiving" returnType="Integer" visibility="public"/>
+        <Method name="setYearsLiving" returnType="void" visibility="public">
+          <Argument type="Integer" name="yearsLiving"/>
+        </Method>
+        <Method name="getEnergy" returnType="Double" visibility="public"/>
+        <Method name="setEnergy" returnType="void" visibility="public">
+          <Argument type="Double" name="energy"/>
+        </Method>
+        <Method name="purr" returnType="void" visibility="public"/>
+        <Method name="calculateAge" returnType="void" visibility="public"/>
+        <Method name="makeNoise" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Dog" package="entities" visibility="public" isFinal="true" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="dogBreed" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="dogBreed"/>
+          <Argument type="Integer" name="paws"/>
+          <Argument type="boolean" name="tail"/>
+          <Argument type="Integer" name="yearsLiving"/>
+          <Argument type="Double" name="energy"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDogBreed" returnType="String" visibility="public"/>
+        <Method name="setDogBreed" returnType="void" visibility="public">
+          <Argument type="String" name="dogBreed"/>
+        </Method>
+        <Method name="getPaws" returnType="Integer" visibility="public"/>
+        <Method name="setPaws" returnType="void" visibility="public">
+          <Argument type="Integer" name="paws"/>
+        </Method>
+        <Method name="isTail" returnType="boolean" visibility="public"/>
+        <Method name="setTail" returnType="void" visibility="public">
+          <Argument type="boolean" name="tail"/>
+        </Method>
+        <Method name="getYearsLiving" returnType="Integer" visibility="public"/>
+        <Method name="setYearsLiving" returnType="void" visibility="public">
+          <Argument type="Integer" name="yearsLiving"/>
+        </Method>
+        <Method name="getEnergy" returnType="Double" visibility="public"/>
+        <Method name="setEnergy" returnType="void" visibility="public">
+          <Argument type="Double" name="energy"/>
+        </Method>
+        <Method name="playAtPark" returnType="void" visibility="public">
+          <Argument type="int" name="time"/>
+        </Method>
+        <Method name="calculateAge" returnType="void" visibility="public"/>
+        <Method name="makeNoise" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="entities.Cat" target="entities.Animal"/>
+    <IsRelation name="is" source="entities.Dog" target="entities.Animal"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entities">
+  <ClassDiagramComponents>
+    <Class name="Building" package="entities" visibility="public" isAbstract="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="height" type="Integer" visibility="protected"/>
+        <Field name="width" type="Integer" visibility="protected"/>
+        <Field name="length" type="Integer" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="height"/>
+          <Argument type="Integer" name="width"/>
+          <Argument type="Integer" name="length"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getHeight" returnType="Integer" visibility="public"/>
+        <Method name="setHeight" returnType="void" visibility="public">
+          <Argument type="Integer" name="height"/>
+        </Method>
+        <Method name="getWidth" returnType="Integer" visibility="public"/>
+        <Method name="setWidth" returnType="void" visibility="public">
+          <Argument type="Integer" name="width"/>
+        </Method>
+        <Method name="getLength" returnType="Integer" visibility="public"/>
+        <Method name="setLength" returnType="void" visibility="public">
+          <Argument type="Integer" name="length"/>
+        </Method>
+        <Method name="calculateSurface" returnType="Integer" visibility="public" isAbstract="true"/>
+        <Method name="calculateVolume" returnType="Integer" visibility="public" isAbstract="true"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="OfficeBuilding" package="entities" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="offices" type="Integer" visibility="private"/>
+        <Field name="peopleInOffices" type="Integer" visibility="private"/>
+        <Field name="floors" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="offices"/>
+          <Argument type="Integer" name="peopleInOffices"/>
+          <Argument type="Integer" name="floors"/>
+          <Argument type="Integer" name="height"/>
+          <Argument type="Integer" name="width"/>
+          <Argument type="Integer" name="length"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getOffices" returnType="Integer" visibility="public"/>
+        <Method name="setOffices" returnType="void" visibility="public">
+          <Argument type="Integer" name="offices"/>
+        </Method>
+        <Method name="getPeopleInOffices" returnType="Integer" visibility="public"/>
+        <Method name="setPeopleInOffices" returnType="void" visibility="public">
+          <Argument type="Integer" name="peopleInOffices"/>
+        </Method>
+        <Method name="getFloors" returnType="Integer" visibility="public"/>
+        <Method name="setFloors" returnType="void" visibility="public">
+          <Argument type="Integer" name="floors"/>
+        </Method>
+        <Method name="amountPeople" returnType="void" visibility="public"/>
+        <Method name="calculateSurface" returnType="Integer" visibility="public"/>
+        <Method name="calculateVolume" returnType="Integer" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SportCenter" package="entities" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="type" type="InstallationType" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="InstallationType" name="type"/>
+          <Argument type="Integer" name="height"/>
+          <Argument type="Integer" name="width"/>
+          <Argument type="Integer" name="length"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getType" returnType="InstallationType" visibility="public"/>
+        <Method name="setType" returnType="void" visibility="public">
+          <Argument type="InstallationType" name="type"/>
+        </Method>
+        <Method name="calculateSurface" returnType="Integer" visibility="public"/>
+        <Method name="calculateVolume" returnType="Integer" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="entities.OfficeBuilding" target="entities.Building"/>
+    <IsRelation name="is" source="entities.SportCenter" target="entities.Building"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

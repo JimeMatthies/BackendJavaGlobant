@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entities">
+  <ClassDiagramComponents>
+    <Class name="Boat" package="entities" visibility="public" xPosition="266.0" yPosition="20.0">
+      <Fields>
+        <Field name="registration" type="String" visibility="protected"/>
+        <Field name="loa" type="Integer" visibility="protected"/>
+        <Field name="manufactureYear" type="Integer" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="registration"/>
+          <Argument type="Integer" name="loa"/>
+          <Argument type="Integer" name="manufactureYear"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getRegistration" returnType="String" visibility="public"/>
+        <Method name="setRegistration" returnType="void" visibility="public">
+          <Argument type="String" name="registration"/>
+        </Method>
+        <Method name="getLoa" returnType="Integer" visibility="public"/>
+        <Method name="setLoa" returnType="void" visibility="public">
+          <Argument type="Integer" name="loa"/>
+        </Method>
+        <Method name="getManufactureYear" returnType="Integer" visibility="public"/>
+        <Method name="setManufactureYear" returnType="void" visibility="public">
+          <Argument type="Integer" name="manufactureYear"/>
+        </Method>
+        <Method name="calculateModule" returnType="Integer" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Motorboat" package="entities" visibility="public" xPosition="267.0" yPosition="158.0">
+      <Fields>
+        <Field name="hp" type="Integer" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="hp"/>
+          <Argument type="String" name="registration"/>
+          <Argument type="Integer" name="loa"/>
+          <Argument type="Integer" name="manufactureYear"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getHp" returnType="Integer" visibility="public"/>
+        <Method name="setHp" returnType="void" visibility="public">
+          <Argument type="Integer" name="hp"/>
+        </Method>
+        <Method name="calculateModule" returnType="Integer" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Rent" package="entities" visibility="public" xPosition="18.0" yPosition="-293.0">
+      <Fields>
+        <Field name="clientName" type="String" visibility="private"/>
+        <Field name="clientDocument" type="String" visibility="private"/>
+        <Field name="rentDate" type="LocalDate" visibility="private"/>
+        <Field name="returnDate" type="LocalDate" visibility="private"/>
+        <Field name="mooringPosition" type="Integer" visibility="private"/>
+        <Field name="boat" type="Boat" visibility="private"/>
+        <Field name="dtf" type="DateTimeFormatter" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="clientName"/>
+          <Argument type="String" name="clientDocument"/>
+          <Argument type="LocalDate" name="rentDate"/>
+          <Argument type="LocalDate" name="returnDate"/>
+          <Argument type="Integer" name="mooringPosition"/>
+          <Argument type="Boat" name="boat"/>
+          <Argument type="DateTimeFormatter" name="dtf"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getClientName" returnType="String" visibility="public"/>
+        <Method name="setClientName" returnType="void" visibility="public">
+          <Argument type="String" name="clientName"/>
+        </Method>
+        <Method name="getClientDocument" returnType="String" visibility="public"/>
+        <Method name="setClientDocument" returnType="void" visibility="public">
+          <Argument type="String" name="clientDocument"/>
+        </Method>
+        <Method name="getRentDate" returnType="LocalDate" visibility="public"/>
+        <Method name="setRentDate" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="rentDate"/>
+        </Method>
+        <Method name="getReturnDate" returnType="LocalDate" visibility="public"/>
+        <Method name="setReturnDate" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="returnDate"/>
+        </Method>
+        <Method name="getMooringPosition" returnType="Integer" visibility="public"/>
+        <Method name="setMooringPosition" returnType="void" visibility="public">
+          <Argument type="Integer" name="mooringPosition"/>
+        </Method>
+        <Method name="getBoat" returnType="Boat" visibility="public"/>
+        <Method name="setBoat" returnType="void" visibility="public">
+          <Argument type="Boat" name="boat"/>
+        </Method>
+        <Method name="calculateRent" returnType="Integer" visibility="public"/>
+        <Method name="createRent" returnType="void" visibility="public">
+          <Argument type="Boat" name="boat"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Sailboat" package="entities" visibility="public" isFinal="true" xPosition="506.0" yPosition="39.0">
+      <Fields>
+        <Field name="masts" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="masts"/>
+          <Argument type="String" name="registration"/>
+          <Argument type="Integer" name="loa"/>
+          <Argument type="Integer" name="manufactureYear"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getMasts" returnType="Integer" visibility="public"/>
+        <Method name="setMasts" returnType="void" visibility="public">
+          <Argument type="Integer" name="masts"/>
+        </Method>
+        <Method name="calculateModule" returnType="Integer" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Yacht" package="entities" visibility="public" isFinal="true" xPosition="267.0" yPosition="284.0">
+      <Fields>
+        <Field name="cabins" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="cabins"/>
+          <Argument type="Integer" name="hp"/>
+          <Argument type="String" name="registration"/>
+          <Argument type="Integer" name="loa"/>
+          <Argument type="Integer" name="manufactureYear"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCabins" returnType="Integer" visibility="public"/>
+        <Method name="setCabins" returnType="void" visibility="public">
+          <Argument type="Integer" name="cabins"/>
+        </Method>
+        <Method name="calculateModule" returnType="Integer" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="entities.Rent" target="entities.Boat" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="entities.Yacht" target="entities.Motorboat"/>
+    <HasRelation name="boat" source="entities.Rent" target="entities.Boat" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="entities.Sailboat" target="entities.Boat"/>
+    <IsRelation name="is" source="entities.Motorboat" target="entities.Boat"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

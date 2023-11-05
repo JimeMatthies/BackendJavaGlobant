@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entities">
+  <ClassDiagramComponents>
+    <Class name="Employee" package="entities" visibility="public" isAbstract="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="joiningYear" type="Integer" visibility="protected"/>
+        <Field name="officeNumber" type="Integer" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="joiningYear"/>
+          <Argument type="Integer" name="officeNumber"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastname"/>
+          <Argument type="String" name="id"/>
+          <Argument type="CivilStatus" name="civilStatus"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getJoiningYear" returnType="Integer" visibility="public"/>
+        <Method name="setJoiningYear" returnType="void" visibility="public">
+          <Argument type="Integer" name="joiningYear"/>
+        </Method>
+        <Method name="getOfficeNumber" returnType="Integer" visibility="public"/>
+        <Method name="setOfficeNumber" returnType="void" visibility="public">
+          <Argument type="Integer" name="officeNumber"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Person" package="entities" visibility="public" isAbstract="true" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="protected"/>
+        <Field name="lastname" type="String" visibility="protected"/>
+        <Field name="id" type="String" visibility="protected"/>
+        <Field name="civilStatus" type="CivilStatus" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastname"/>
+          <Argument type="String" name="id"/>
+          <Argument type="CivilStatus" name="civilStatus"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getLastname" returnType="String" visibility="public"/>
+        <Method name="setLastname" returnType="void" visibility="public">
+          <Argument type="String" name="lastname"/>
+        </Method>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getCivilStatus" returnType="CivilStatus" visibility="public"/>
+        <Method name="setCivilStatus" returnType="void" visibility="public">
+          <Argument type="CivilStatus" name="civilStatus"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Professor" package="entities" visibility="public" isFinal="true" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="departament" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="departament"/>
+          <Argument type="Integer" name="joiningYear"/>
+          <Argument type="Integer" name="officeNumber"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastname"/>
+          <Argument type="String" name="id"/>
+          <Argument type="CivilStatus" name="civilStatus"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDepartament" returnType="String" visibility="public"/>
+        <Method name="setDepartament" returnType="void" visibility="public">
+          <Argument type="String" name="departament"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Staff" package="entities" visibility="public" isFinal="true" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="section" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="section"/>
+          <Argument type="Integer" name="joiningYear"/>
+          <Argument type="Integer" name="officeNumber"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastname"/>
+          <Argument type="String" name="id"/>
+          <Argument type="CivilStatus" name="civilStatus"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSection" returnType="String" visibility="public"/>
+        <Method name="setSection" returnType="void" visibility="public">
+          <Argument type="String" name="section"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Student" package="entities" visibility="public" isFinal="true" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="className" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="className"/>
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastname"/>
+          <Argument type="String" name="id"/>
+          <Argument type="CivilStatus" name="civilStatus"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getClassName" returnType="String" visibility="public"/>
+        <Method name="setClassName" returnType="void" visibility="public">
+          <Argument type="String" name="className"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="entities.Employee" target="entities.Person"/>
+    <IsRelation name="is" source="entities.Student" target="entities.Person"/>
+    <IsRelation name="is" source="entities.Staff" target="entities.Employee"/>
+    <IsRelation name="is" source="entities.Professor" target="entities.Employee"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

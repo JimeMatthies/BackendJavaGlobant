@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entities">
+  <ClassDiagramComponents>
+    <Class name="Building" package="entities" visibility="public" isFinal="true" xPosition="24.0" yPosition="273.0">
+      <Fields>
+        <Field name="floors" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="floors"/>
+          <Argument type="Double" name="totalArea"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calculateCoveredArea" returnType="void" visibility="public">
+          <Argument type="Double" name="width"/>
+          <Argument type="Double" name="height"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CountryHouse" package="entities" visibility="public" isFinal="true" xPosition="363.0" yPosition="273.0">
+      <Fields>
+        <Field name="TreeHouse" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="TreeHouse"/>
+          <Argument type="Double" name="totalArea"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calculateCoveredArea" returnType="void" visibility="public">
+          <Argument type="Double" name="width"/>
+          <Argument type="Double" name="height"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Structure" package="entities" visibility="public" isAbstract="true" xPosition="189.0" yPosition="51.0">
+      <Fields>
+        <Field name="coveredArea" type="Double" visibility="protected"/>
+        <Field name="totalArea" type="Double" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Double" name="totalArea"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calculateCoveredArea" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="Double" name="width"/>
+          <Argument type="Double" name="height"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="entities.CountryHouse" target="entities.Structure"/>
+    <IsRelation name="is" source="entities.Building" target="entities.Structure"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

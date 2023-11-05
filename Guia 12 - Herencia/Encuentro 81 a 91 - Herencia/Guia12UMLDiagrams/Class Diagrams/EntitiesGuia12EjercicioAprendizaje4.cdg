@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entities">
+  <ClassDiagramComponents>
+    <Class name="Circle" package="entities" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="radius" type="Double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Double" name="radius"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getRadius" returnType="Double" visibility="public"/>
+        <Method name="setRadius" returnType="void" visibility="public">
+          <Argument type="Double" name="radius"/>
+        </Method>
+        <Method name="calculateArea" returnType="Double" visibility="public"/>
+        <Method name="calculatePerimeter" returnType="Double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Rectangle" package="entities" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="length" type="Double" visibility="private"/>
+        <Field name="width" type="Double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Double" name="length"/>
+          <Argument type="Double" name="width"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getLength" returnType="Double" visibility="public"/>
+        <Method name="setLength" returnType="void" visibility="public">
+          <Argument type="Double" name="length"/>
+        </Method>
+        <Method name="getWidth" returnType="Double" visibility="public"/>
+        <Method name="setWidth" returnType="void" visibility="public">
+          <Argument type="Double" name="width"/>
+        </Method>
+        <Method name="calculateArea" returnType="Double" visibility="public"/>
+        <Method name="calculatePerimeter" returnType="Double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

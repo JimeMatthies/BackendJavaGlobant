@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entities">
+  <ClassDiagramComponents>
+    <Class name="Pet" package="entities" visibility="public" isFinal="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="nickname" type="String" visibility="private"/>
+        <Field name="type" type="String" visibility="private"/>
+        <Field name="breed" type="T" visibility="private"/>
+        <Field name="color" type="String" visibility="private"/>
+        <Field name="age" type="Integer" visibility="private"/>
+        <Field name="gender" type="Gender" visibility="private"/>
+        <Field name="tail" type="boolean" visibility="private"/>
+        <Field name="energy" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="nickname"/>
+          <Argument type="String" name="type"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="nickname"/>
+          <Argument type="String" name="type"/>
+          <Argument type="T" name="breed"/>
+          <Argument type="String" name="color"/>
+          <Argument type="Integer" name="age"/>
+          <Argument type="Gender" name="gender"/>
+          <Argument type="boolean" name="tail"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getNickname" returnType="String" visibility="public"/>
+        <Method name="setNickname" returnType="void" visibility="public">
+          <Argument type="String" name="nickname"/>
+        </Method>
+        <Method name="getType" returnType="String" visibility="public"/>
+        <Method name="setType" returnType="void" visibility="public">
+          <Argument type="String" name="type"/>
+        </Method>
+        <Method name="getBreed" returnType="T" visibility="public"/>
+        <Method name="setBreed" returnType="void" visibility="public">
+          <Argument type="T" name="breed"/>
+        </Method>
+        <Method name="getColor" returnType="String" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="String" name="color"/>
+        </Method>
+        <Method name="getAge" returnType="Integer" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="Integer" name="age"/>
+        </Method>
+        <Method name="getGender" returnType="Gender" visibility="public"/>
+        <Method name="setGender" returnType="void" visibility="public">
+          <Argument type="Gender" name="gender"/>
+        </Method>
+        <Method name="isTail" returnType="boolean" visibility="public"/>
+        <Method name="setTail" returnType="void" visibility="public">
+          <Argument type="boolean" name="tail"/>
+        </Method>
+        <Method name="getEnergy" returnType="int" visibility="public"/>
+        <Method name="setEnergy" returnType="void" visibility="public">
+          <Argument type="int" name="energy"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="walking" returnType="int" visibility="public">
+          <Argument type="int" name="energyLoss"/>
+          <Argument type="int" name="laps"/>
+        </Method>
+        <Method name="eat" returnType="void" visibility="public">
+          <Argument type="int" name="amount"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="User" package="entities" visibility="public" isFinal="true" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="lastname" type="String" visibility="private"/>
+        <Field name="country" type="String" visibility="private"/>
+        <Field name="ssn" type="Integer" visibility="private"/>
+        <Field name="birthdate" type="LocalDate" visibility="private"/>
+        <Field name="gender" type="Gender" visibility="private"/>
+        <Field name="favoritePet" type="Pet" visibility="private"/>
+        <Field name="pets" type="List&lt;Pet&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastname"/>
+          <Argument type="Integer" name="ssn"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="lastname"/>
+          <Argument type="String" name="country"/>
+          <Argument type="Integer" name="ssn"/>
+          <Argument type="LocalDate" name="birthdate"/>
+          <Argument type="Gender" name="gender"/>
+          <Argument type="Pet" name="favoritePet"/>
+          <Argument type="List&lt;Pet&gt;" name="pets"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getLastname" returnType="String" visibility="public"/>
+        <Method name="setLastname" returnType="void" visibility="public">
+          <Argument type="String" name="lastname"/>
+        </Method>
+        <Method name="getCountry" returnType="String" visibility="public"/>
+        <Method name="setCountry" returnType="void" visibility="public">
+          <Argument type="String" name="country"/>
+        </Method>
+        <Method name="getSsn" returnType="Integer" visibility="public"/>
+        <Method name="setSsn" returnType="void" visibility="public">
+          <Argument type="Integer" name="ssn"/>
+        </Method>
+        <Method name="getBirthdate" returnType="LocalDate" visibility="public"/>
+        <Method name="setBirthdate" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="birthdate"/>
+        </Method>
+        <Method name="getGender" returnType="Gender" visibility="public"/>
+        <Method name="setGender" returnType="void" visibility="public">
+          <Argument type="Gender" name="gender"/>
+        </Method>
+        <Method name="getFavoritePet" returnType="Pet" visibility="public"/>
+        <Method name="setFavoritePet" returnType="void" visibility="public">
+          <Argument type="Pet" name="favoritePet"/>
+        </Method>
+        <Method name="getPets" returnType="List&lt;Pet&gt;" visibility="public"/>
+        <Method name="setPets" returnType="void" visibility="public">
+          <Argument type="List&lt;Pet&gt;" name="pets"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="pets" source="entities.User" target="entities.Pet" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Pet&gt;"/>
+    <HasRelation name="favoritePet" source="entities.User" target="entities.Pet" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entities.User" target="entities.Pet" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

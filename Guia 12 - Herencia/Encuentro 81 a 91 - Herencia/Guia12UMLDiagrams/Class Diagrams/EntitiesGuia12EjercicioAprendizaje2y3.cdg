@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entities">
+  <ClassDiagramComponents>
+    <Class name="Appliance" package="entities" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="price" type="Double" visibility="protected"/>
+        <Field name="color" type="String" visibility="protected"/>
+        <Field name="energyEfficiency" type="Character" visibility="protected"/>
+        <Field name="weight" type="Integer" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Double" name="price"/>
+          <Argument type="String" name="color"/>
+          <Argument type="Character" name="energyEfficiency"/>
+          <Argument type="Integer" name="weight"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPrice" returnType="Double" visibility="public"/>
+        <Method name="setPrice" returnType="void" visibility="public">
+          <Argument type="Double" name="price"/>
+        </Method>
+        <Method name="getColor" returnType="String" visibility="public"/>
+        <Method name="setColor" returnType="void" visibility="public">
+          <Argument type="String" name="color"/>
+        </Method>
+        <Method name="getEnergyEfficiency" returnType="Character" visibility="public"/>
+        <Method name="setEnergyEfficiency" returnType="void" visibility="public">
+          <Argument type="Character" name="energyEfficiency"/>
+        </Method>
+        <Method name="getWeight" returnType="Integer" visibility="public"/>
+        <Method name="setWeight" returnType="void" visibility="public">
+          <Argument type="Integer" name="weight"/>
+        </Method>
+        <Method name="checkEnergyEfficiency" returnType="Character" visibility="private">
+          <Argument type="Character" name="energyEfficiency"/>
+        </Method>
+        <Method name="checkColor" returnType="String" visibility="private">
+          <Argument type="String" name="color"/>
+        </Method>
+        <Method name="createAppliance" returnType="void" visibility="protected"/>
+        <Method name="finalPrice" returnType="Double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Television" package="entities" visibility="public" isFinal="true" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="resolution" type="Integer" visibility="private"/>
+        <Field name="tdt" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="resolution"/>
+          <Argument type="boolean" name="tdt"/>
+          <Argument type="Double" name="price"/>
+          <Argument type="String" name="color"/>
+          <Argument type="Character" name="energyEfficiency"/>
+          <Argument type="Integer" name="weight"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getResolution" returnType="Integer" visibility="public"/>
+        <Method name="setResolution" returnType="void" visibility="public">
+          <Argument type="Integer" name="resolution"/>
+        </Method>
+        <Method name="isTdt" returnType="boolean" visibility="public"/>
+        <Method name="setTdt" returnType="void" visibility="public">
+          <Argument type="boolean" name="tdt"/>
+        </Method>
+        <Method name="createTelevision" returnType="void" visibility="public"/>
+        <Method name="finalPrice" returnType="Double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="WashingMachine" package="entities" visibility="public" isFinal="true" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="load" type="Integer" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="load"/>
+          <Argument type="Double" name="price"/>
+          <Argument type="String" name="color"/>
+          <Argument type="Character" name="energyEfficiency"/>
+          <Argument type="Integer" name="weight"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getLoad" returnType="Integer" visibility="public"/>
+        <Method name="setLoad" returnType="void" visibility="public">
+          <Argument type="Integer" name="load"/>
+        </Method>
+        <Method name="createWashingMachine" returnType="void" visibility="public"/>
+        <Method name="finalPrice" returnType="Double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="entities.WashingMachine" target="entities.Appliance"/>
+    <IsRelation name="is" source="entities.Television" target="entities.Appliance"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

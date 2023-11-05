@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="entities">
+  <ClassDiagramComponents>
+    <Class name="Animal" package="entities" visibility="public" isAbstract="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="protected"/>
+        <Field name="food" type="String" visibility="protected"/>
+        <Field name="age" type="Integer" visibility="protected"/>
+        <Field name="breed" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="food"/>
+          <Argument type="Integer" name="age"/>
+          <Argument type="String" name="breed"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="feed" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Cat" package="entities" visibility="public" isFinal="true" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="food"/>
+          <Argument type="Integer" name="age"/>
+          <Argument type="String" name="breed"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getFood" returnType="String" visibility="public"/>
+        <Method name="setFood" returnType="void" visibility="public">
+          <Argument type="String" name="food"/>
+        </Method>
+        <Method name="getAge" returnType="Integer" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="Integer" name="age"/>
+        </Method>
+        <Method name="getBreed" returnType="String" visibility="public"/>
+        <Method name="setBreed" returnType="void" visibility="public">
+          <Argument type="String" name="breed"/>
+        </Method>
+        <Method name="feed" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Dog" package="entities" visibility="public" isFinal="true" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="food"/>
+          <Argument type="Integer" name="age"/>
+          <Argument type="String" name="breed"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getFood" returnType="String" visibility="public"/>
+        <Method name="setFood" returnType="void" visibility="public">
+          <Argument type="String" name="food"/>
+        </Method>
+        <Method name="getAge" returnType="Integer" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="Integer" name="age"/>
+        </Method>
+        <Method name="getBreed" returnType="String" visibility="public"/>
+        <Method name="setBreed" returnType="void" visibility="public">
+          <Argument type="String" name="breed"/>
+        </Method>
+        <Method name="feed" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Horse" package="entities" visibility="public" isFinal="true" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="food"/>
+          <Argument type="Integer" name="age"/>
+          <Argument type="String" name="breed"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getFood" returnType="String" visibility="public"/>
+        <Method name="setFood" returnType="void" visibility="public">
+          <Argument type="String" name="food"/>
+        </Method>
+        <Method name="getAge" returnType="Integer" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="Integer" name="age"/>
+        </Method>
+        <Method name="getBreed" returnType="String" visibility="public"/>
+        <Method name="setBreed" returnType="void" visibility="public">
+          <Argument type="String" name="breed"/>
+        </Method>
+        <Method name="feed" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="entities.Horse" target="entities.Animal"/>
+    <IsRelation name="is" source="entities.Cat" target="entities.Animal"/>
+    <IsRelation name="is" source="entities.Dog" target="entities.Animal"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
