@@ -15,9 +15,10 @@ public class Guia13EjercicioAprendizaje2 {
         Team t1 = new Team();
         for (int i = 0; i < 15; i++) {
             try {
-                t1.getPlayerNumbers()[i] = i;
+                t1.getPlayerNumbers()[i] = i+1;
             } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println(e.getMessage());
+                System.out.println("Error: " + e.toString());
+                System.out.println("Error: " + e.getMessage());
             }
         }
         System.out.println("");
