@@ -16,6 +16,7 @@ import java.util.Scanner;
 public class Guia13EjercicioAprendizaje5 {
 
     public static void main(String[] args) {
+
         Scanner SC = new Scanner(System.in).useDelimiter("\n");
         System.out.println("GAME: Guess the number between 1 and 500");
         int num = (int) (Math.random() * 499 + 1);
@@ -40,5 +41,5 @@ public class Guia13EjercicioAprendizaje5 {
         } while (num != input);
         System.out.println("You won! You guess the number " + num + " in " + counter + " tries");
     }
-
+       
 }
