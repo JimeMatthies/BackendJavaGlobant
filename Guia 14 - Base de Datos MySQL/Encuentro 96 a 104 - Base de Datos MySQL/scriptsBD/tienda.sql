@@ -39,3 +39,5 @@ INSERT INTO producto VALUES(11, 'Impresora HP Laserjet Pro M26nw', 180, 3);
 
 SELECT * FROM fabricante;
 SELECT * FROM producto;
+
+SELECT codigo, nombre FROM fabricante;
