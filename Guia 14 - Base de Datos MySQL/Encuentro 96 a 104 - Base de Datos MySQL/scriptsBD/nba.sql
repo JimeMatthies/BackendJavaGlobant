@@ -18566,4 +18566,3 @@ INSERT INTO partidos VALUES (15660,'Suns','Mavericks',69,144,'07/08');
 -- SELECT FLOOR(AVG(Puntos_por_partido)+COUNT(Asistencias_por_partido)+SUM(Tapones_por_partido)) FROM estadisticas INNER JOIN jugadores ON estadisticas.jugador = jugadores.codigo INNER JOIN equipos ON jugadores.Nombre_equipo = equipos.Nombre WHERE Division = 'Central';
 -- SELECT ROUND(Tapones_por_partido) FROM estadisticas INNER JOIN jugadores ON estadisticas.jugador = jugadores.codigo  WHERE Temporada = '00/01' AND Nombre = 'Corey Maggette';
 -- SELECT FLOOR(SUM(Puntos_por_partido)) FROM estadisticas INNER JOIN jugadores ON estadisticas.jugador = jugadores.codigo WHERE Procedencia = 'Argentina';
-

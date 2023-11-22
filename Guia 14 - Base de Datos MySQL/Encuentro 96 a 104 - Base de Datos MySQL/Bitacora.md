@@ -275,4 +275,237 @@ empieza con “B”.
     - SELECT * FROM empleados WHERE sal_emp >= (SELECT ROUND(AVG(sal_emp)) FROM empleados) ORDER BY id_depto;
 
 2. Abrir el script de la base de datos llamada “tienda.sql” y ejecutarlo para crear sus tablas e
-insertar datos en las mismas. A continuación, generar el modelo de entidad relación.
+insertar datos en las mismas. A continuación, generar el modelo de entidad relación:
+
+    2.1. Lista el nombre de todos los productos que hay en la tabla producto:
+    - SELECT nombre FROM producto;
+
+    2.2. Lista los nombres y los precios de todos los productos de la tabla producto:
+    - SELECT nombre, precio FROM producto;
+
+    2.3. Lista todas las columnas de la tabla producto.
+    - SELECT * FROM producto;
+
+    2.4. Lista los nombres y los precios de todos los productos de la tabla producto, redondeando el valor del precio:
+    - SELECT nombre, ROUND(precio) AS redondeado FROM producto;
+
+    2.5. Lista el código de los fabricantes que tienen productos en la tabla producto:
+    - SELECT codigo_fabricante FROM producto;
+    
+    2.6. Lista el código de los fabricantes que tienen productos en la tabla producto, sin mostrar los repetidos:
+    - SELECT DISTINCT codigo_fabricante FROM producto;
+
+    2.7. Lista los nombres de los fabricantes ordenados de forma ascendente:
+    - SELECT nombre FROM fabricante ORDER BY nombre ASC;
+
+    2.8. Lista los nombres de los productos ordenados en primer lugar por el nombre de forma ascendente y en segundo lugar por el precio de forma descendente:
+    - SELECT nombre, precio FROM producto ORDER BY nombre ASC, precio DESC;
+
+    2.9. Devuelve una lista con las 5 primeras filas de la tabla fabricante:
+    - SELECT * FROM fabricante LIMIT 5;
+
+    2.10. Lista el nombre y el precio del producto más barato (Utilice solamente las cláusulas ORDER BY y LIMIT):
+    - SELECT nombre, precio FROM producto ORDER BY precio ASC LIMIT 1;
+
+    2.11. Lista el nombre y el precio del producto más caro (Utilice solamente las cláusulas ORDER BY y LIMIT):
+    - SELECT nombre, precio FROM producto ORDER BY precio DESC LIMIT 1;
+
+    2.12. Lista el nombre de los productos que tienen un precio menor o igual a $120:
+    - SELECT nombre FROM producto WHERE precio <= 120;
+
+    2.13. Lista todos los productos que tengan un precio entre $60 y $200. Utilizando el operador BETWEEN:
+    - SELECT * FROM producto WHERE precio BETWEEN 60 AND 200;
+
+    2.14. Lista todos los productos donde el código de fabricante sea 1, 3 o 5. Utilizando el operador IN.
+    - SELECT * FROM producto WHERE codigo_fabricante IN (1,3,5);
+
+    2.15. Devuelve una lista con el nombre de todos los productos que contienen la cadena Portátil en el nombre:
+    - SELECT nombre FROM producto WHERE nombre LIKE '%Portátil%';
+
+    2.16. Devuelve una lista con el código del producto, nombre del producto, código del fabricante y nombre del fabricante, de todos los productos de la base de datos:
+    - SELECT p.codigo, p.nombre, p.codigo_fabricante, f.nombre FROM producto p, fabricante f WHERE p.codigo_fabricante = f.codigo;
+
+    2.17. Devuelve una lista con el nombre del producto, precio y nombre de fabricante de todos los productos de la base de datos. Ordene el resultado por el nombre del fabricante, por orden alfabético:
+    - SELECT p.nombre, p.precio, f.nombre FROM producto p, fabricante f WHERE p.codigo_fabricante = f.codigo ORDER BY f.nombre ASC;
+
+    2.18. Devuelve el nombre del producto, su precio y el nombre de su fabricante, del producto más barato:
+    - SELECT p.nombre, p.precio, f.nombre FROM producto p, fabricante f WHERE p.codigo_fabricante = f.codigo ORDER BY p.precio ASC LIMIT 1;
+
+    2.19. Devuelve una lista de todos los productos del fabricante Lenovo:
+    - SELECT p.* FROM producto p, fabricante f WHERE p.codigo_fabricante = f.codigo AND f.nombre = 'Lenovo';
+
+    2.20. Devuelve una lista de todos los productos del fabricante Crucial que tengan un precio mayor que $200:
+    - SELECT p.* FROM producto p, fabricante f WHERE p.codigo_fabricante = f.codigo AND f.nombre = 'Crucial' AND p.precio > 200;
+
+    2.21. Devuelve un listado con todos los productos de los fabricantes Asus, Hewlett-Packard. Utilizando el operador IN.
+    - SELECT p.* FROM producto p, fabricante f WHERE p.codigo_fabricante = f.codigo AND f.nombre IN ('Asus', 'Hewlett-Packard');
+
+    2.22. Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos los productos que tengan un precio mayor o igual a $180. Ordene el resultado en primer lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden ascendente):
+    - SELECT p.nombre, p.precio, f.nombre FROM producto p, fabricante f WHERE p.codigo_fabricante = f.codigo AND p.precio >= 180 ORDER BY p.precio DESC, p.nombre ASC;
+
+    2.23. Devuelve un listado de todos los fabricantes que existen en la base de datos, junto con los productos que tiene cada uno de ellos. El listado deberá mostrar también aquellos fabricantes que no tienen productos asociados:
+    - SELECT f.nombre, p.nombre, p.precio FROM fabricante f LEFT JOIN producto p ON p.codigo_fabricante = f.codigo;
+
+    2.24. Devuelve un listado donde sólo aparezcan aquellos fabricantes que no tienen ningún producto asociado:
+    - SELECT f.nombre FROM fabricante f LEFT JOIN producto p on p.codigo_fabricante = f.codigo WHERE p.nombre IS NULL;
+
+    2.25. Devuelve todos los productos del fabricante Lenovo (Sin utilizar INNER JOIN):
+    - SELECT * FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Lenovo');
+
+    2.26. Devuelve todos los datos de los productos que tienen el mismo precio que el producto más caro del fabricante Lenovo (Sin utilizar INNER JOIN):
+    - SELECT * FROM producto WHERE precio = (SELECT MAX(precio) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Lenovo'));
+
+    2.27. Lista el nombre del producto más caro del fabricante Lenovo:
+    - SELECT nombre from producto WHERE precio = (SELECT MAX(precio) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Lenovo')) AND codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Lenovo');
+
+    2.28. Lista todos los productos del fabricante Asus que tienen un precio superior al precio medio de todos sus productos:
+    - SELECT * FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Asus') AND precio > (SELECT AVG(precio) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre = 'Asus'));
+
+    2.29. Devuelve los nombres de los fabricantes que tienen productos asociados. (Utilizando IN o NOT IN):
+    - SELECT * FROM fabricante WHERE codigo IN (SELECT codigo_fabricante FROM producto);
+
+    2.30. Devuelve los nombres de los fabricantes que no tienen productos asociados. (Utilizando IN o NOT IN):
+    - SELECT * FROM fabricante WHERE codigo NOT IN (SELECT codigo_fabricante FROM producto);
+
+    2.31. Devuelve un listado con todos los nombres de los fabricantes que tienen el mismo número de productos que el fabricante Lenovo:
+    - SELECT f.nombre, count(*) FROM producto p, fabricante f WHERE p.codigo_fabricante = f.codigo GROUP BY f.nombre HAVING COUNT(*) = (SELECT COUNT(*) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre ='Lenovo'));
+
+## Ejercicios de Aprendizaje Extra:
+
+1. Abrir el script de la base de datos llamada “nba.sql” y ejecutarlo para crear todas las tablas e
+insertar datos en las mismas. A continuación, realizar las siguientes consultas sobre la base de datos:
+
+    1.1. Mostrar el nombre de todos los jugadores ordenados alfabéticamente:
+    - SELECT Nombre FROM jugadores ORDER BY Nombre ASC;
+
+    1.2. Mostrar el nombre de los jugadores que sean pivots (‘C’) y que pesen más de 200 libras, ordenados por nombre alfabéticamente:
+    - 
+
+    1.3. Mostrar el nombre de todos los equipos ordenados alfabéticamente:
+    - 
+
+    1.4. Mostrar el nombre de los equipos del este (East):
+    - 
+
+    1.5. Mostrar los equipos donde su ciudad empieza con la letra ‘c’, ordenados por nombre:
+    - 
+
+    1.6. Mostrar todos los jugadores y su equipo ordenados por nombre del equipo:
+    -
+
+    1.7. Mostrar todos los jugadores del equipo “Raptors” ordenados por nombre:
+    - 
+
+    1.8. Mostrar los puntos por partido del jugador ‘Pau Gasol’:
+    - 
+
+    1.9. Mostrar los puntos por partido del jugador ‘Pau Gasol’ en la temporada ’04/05′:
+    - 
+
+    1.10. Mostrar el número de puntos de cada jugador en toda su carrera:
+    - 
+
+    1.11. Mostrar el número de jugadores de cada equipo:
+    - 
+
+    1. 12. Mostrar el jugador que más puntos ha realizado en toda su carrera:
+    - 
+
+    1.13. Mostrar el nombre del equipo, conferencia y división del jugador más alto de la NBA:
+    - 
+
+    1.14. Mostrar el partido o partidos (equipo_local, equipo_visitante y diferencia) con mayor diferencia de puntos:
+    - 
+
+    1.15. Mostrar quien gana en cada partido (codigo, equipo_local, equipo_visitante, equipo_ganador), en caso de empate sera null:
+    - 
+
+2. Abrir el script de la base de datos llamada “jardineria.sql” y ejecutarlo para crear todas las
+tablas e insertar datos en las mismas. A continuación, se deben realizar las siguientes consultas sobre la base de datos:
+
+    2.1. Devuelve un listado con el código de oficina y la ciudad donde hay oficinas:
+    - 
+
+    2.2. Devuelve un listado con la ciudad y el teléfono de las oficinas de España:
+    - 
+
+    2.3. Devuelve un listado con el nombre, apellidos y email de los empleados cuyo jefe tiene un código de jefe igual a 7:
+    - 
+
+    2.4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa:
+    - 
+
+    2.5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no sean representantes de ventas:
+    - 
+
+    2.6. Devuelve un listado con el nombre de los todos los clientes españoles:
+    - 
+
+    2.7. Devuelve un listado con los distintos estados por los que puede pasar un pedido:
+    -
+
+    2.8. Devuelve un listado con el código de cliente de aquellos clientes que realizaron algún pago en 2008. Tenga en cuenta que deberá eliminar aquellos códigos de cliente que aparezcan repetidos. Resuelva la consulta:
+        ° Utilizando la función YEAR de MySQL.
+        - 
+        ° Utilizando la función DATE_FORMAT de MySQL.
+        - 
+        ° Sin utilizar ninguna de las funciones anteriores.
+        - 
+    
+    2.9. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos que no han sido entregados a tiempo:
+    - 
+
+    2.10. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos cuya fecha de entrega ha sido al menos dos días antes de la fecha esperada:
+        ° Utilizando la función ADDDATE de MySQL.
+        -
+        ° Utilizando la función DATEDIFF de MySQL.
+        - 
+    
+    2.11. Devuelve un listado de todos los pedidos que fueron rechazados en 2009:
+    - 
+
+    2.12. Devuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier año:
+    -
+
+    2.13. Devuelve un listado con todos los pagos que se realizaron en el año 2008 mediante Paypal. Ordene el resultado de mayor a menor:
+    -
+
+    2.14. Devuelve un listado con todas las formas de pago que aparecen en la tabla pago. Tenga en cuenta que no deben aparecer formas de pago repetidas:
+
+    2.15. Devuelve un listado con todos los productos que pertenecen a la gama Ornamentales y que tienen más de 100 unidades en stock. El listado deberá estar ordenado por su precio de venta, mostrando en primer lugar los de mayor precio:
+    -
+
+    2.16. Devuelve un listado con todos los clientes que sean de la ciudad de Madrid y cuyo representante de ventas tenga el código de empleado 11 o 30:
+    - 
+
+    2.17. Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas:
+    - 
+
+    2.18 Muestra el nombre de los clientes que hayan realizado pagos junto con el nombre de sus representantes de ventas:
+    - 
+
+    2.19 Muestra el nombre de los clientes que no hayan realizado pagos junto con el nombre de sus representantes de ventas:
+    -
+
+    2.20 Devuelve el nombre de los clientes que han hecho pagos y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante:
+    -
+
+    2.21 Devuelve el nombre de los clientes que no hayan hecho pagos y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante:
+    - 
+
+    2.22 Lista la dirección de las oficinas que tengan clientes en Fuenlabrada:
+    - 
+
+    2.23 Devuelve el nombre de los clientes y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante:
+    - 
+
+    2.24 Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes:
+    - 
+
+    2.25 Devuelve el nombre de los clientes a los que no se les ha entregado a tiempo un pedido:
+    -
+
+    2.26 Devuelve un listado de las diferentes gamas de producto que ha comprado cada cliente:
+    -
+
+    
