@@ -18558,6 +18558,24 @@ INSERT INTO partidos VALUES (15658,'Suns','Spurs',105,157,'07/08');
 INSERT INTO partidos VALUES (15659,'Suns','Rockets',105,57,'07/08');
 INSERT INTO partidos VALUES (15660,'Suns','Mavericks',69,144,'07/08');
 
+/* Ejercicio Aprendizaje Extra */
+-- SELECT Nombre FROM jugadores ORDER BY Nombre ASC;
+-- SELECT Nombre FROM jugadores WHERE posicion LIKE '%C%' AND peso > 200 ORDER BY Nombre ASC;
+-- SELECT Nombre FROM equipos ORDER BY Nombre ASC;
+-- SELECT Nombre FROM equipos WHERE conferencia = 'East' ORDER BY Nombre ASC;
+-- SELECT Nombre FROM equipos WHERE ciudad LIKE 'C%' ORDER BY Nombre ASC; 
+-- SELECT Nombre, Nombre_equipo FROM jugadores ORDER BY Nombre_equipo, Nombre ASC;
+-- SELECT Nombre, Nombre_equipo FROM jugadores WHERE Nombre_equipo = 'Raptors' ORDER BY Nombre ASC;
+-- SELECT Puntos_por_partido FROM estadisticas e, jugadores j WHERE e.jugador = j.codigo AND j.Nombre = 'Pau Gasol';
+-- SELECT Puntos_por_partido FROM estadisticas e, jugadores j WHERE e.jugador = j.codigo AND j.Nombre = 'Pau Gasol' AND temporada = '04/05';
+-- SELECT j.Nombre, SUM(e.Puntos_por_partido) AS Puntos FROM jugadores j, estadisticas e WHERE j.codigo = e.jugador GROUP BY j.Nombre ORDER BY j.Nombre ASC; 
+-- SELECT Nombre_equipo, COUNT(*) FROM jugadores GROUP BY Nombre_equipo; 
+-- SELECT p.Nombre FROM (SELECT j.Nombre, SUM(e.Puntos_por_partido) AS Puntos FROM jugadores j, estadisticas e WHERE j.codigo = e.jugador GROUP BY j.Nombre ORDER BY j.Nombre ASC) p ORDER BY p.Puntos DESC LIMIT 1;
+-- SELECT j.Nombre AS Jugador, e.Nombre AS Equipo, e.conferencia AS Conferencia, e.division AS Division FROM equipos e, jugadores j WHERE e.Nombre = j.Nombre_equipo AND j.altura = (SELECT MAX(altura) FROM jugadores);
+-- SELECT equipo_local, equipo_visitante, ABS(puntos_local - puntos_visitante) AS diferencia FROM partidos WHERE ABS(puntos_local - puntos_visitante) = (SELECT MAX(ABS(puntos_local - puntos_visitante)) FROM partidos);
+-- SELECT codigo, equipo_local, equipo_visitante, CASE WHEN p.puntos_local > p.puntos_visitante THEN equipo_local WHEN p.puntos_local < p.puntos_visitante THEN equipo_visitante ELSE NULL END AS ganador FROM partidos p;
+
+/* Integrador */
 -- SELECT COUNT(*) FROM estadisticas GROUP BY Asistencias_por_partido ORDER BY Asistencias_por_partido DESC LIMIT 1;
 -- SELECT SUM(Peso) FROM jugadores INNER JOIN equipos ON equipos.Nombre = jugadores.Nombre_Equipo WHERE Conferencia LIKE 'East' AND Posicion LIKE '%c%';
 -- SELECT COUNT(Nombre) FROM jugadores INNER JOIN estadisticas ON estadisticas.jugador = jugadores.codigo WHERE Asistencias_por_partido > (SELECT COUNT(codigo) FROM jugadores WHERE Nombre_Equipo LIKE 'Heat');

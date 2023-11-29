@@ -5549,3 +5549,25 @@ begin
     
 end$$
 delimiter ;
+
+-- SELECT nombre FROM pokemon;
+-- SELECT nombre FROM pokemon WHERE peso <= 10;
+-- SELECT p.nombre FROM pokemon p, pokemon_tipo pt, tipo t WHERE p.numero_pokedex = pt.numero_pokedex AND pt.id_tipo=t.id_tipo AND t.nombre = 'Agua';
+-- SELECT p.nombre, t.nombre FROM pokemon p, pokemon_tipo pt, tipo t WHERE p.numero_pokedex = pt.numero_pokedex AND pt.id_tipo=t.id_tipo AND t.nombre = 'Agua' OR t.nombre = 'Fuego' OR t.nombre = 'Tierra' ORDER BY t.nombre;
+-- SELECT nombre FROM pokemon WHERE numero_pokedex IN (SELECT numero_pokedex FROM pokemon_tipo pt, tipo t WHERE pt.id_tipo=t.id_tipo AND t.nombre = 'Fuego') AND numero_pokedex IN (SELECT numero_pokedex FROM pokemon_tipo pt, tipo t WHERE pt.id_tipo=t.id_tipo AND t.nombre = 'Volador');
+-- SELECT p.nombre FROM pokemon p, estadisticas_base est WHERE p.numero_pokedex=est.numero_pokedex AND est.ps >= 200;
+-- SELECT p.nombre, p.altura, p.peso FROM pokemon p, evoluciona_de ev WHERE p.numero_pokedex = ev.pokemon_origen AND ev.pokemon_evolucionado = (SELECT numero_pokedex FROM pokemon WHERE nombre = 'Arbok');
+-- SELECT p.nombre FROM pokemon p, pokemon_forma_evolucion pfe, forma_evolucion fe, tipo_evolucion te WHERE p.numero_pokedex = pfe.numero_pokedex AND pfe.id_forma_evolucion = fe.id_forma_evolucion AND fe.tipo_evolucion = te.id_tipo_evolucion AND te.tipo_evolucion = 'Intercambio';
+-- SELECT nombre FROM movimiento mov WHERE prioridad = (SELECT MAX(prioridad) FROM movimiento);
+-- SELECT nombre, peso FROM pokemon WHERE peso = (SELECT MAX(peso) FROM pokemon);
+-- SELECT m.nombre AS movimiento, t.nombre AS tipo, m.potencia FROM movimiento m, tipo t WHERE m.id_tipo = t.id_tipo AND m.potencia = (SELECT MAX(potencia) FROM movimiento);
+-- SELECT t.nombre AS tipo, COUNT(*) AS num_mov FROM tipo t, movimiento m WHERE m.id_tipo = t.id_tipo GROUP BY t.nombre;
+-- SELECT m.nombre, mes.probabilidad FROM movimiento m, movimiento_efecto_secundario mes, efecto_secundario es WHERE m.id_movimiento = mes.id_movimiento AND mes.id_efecto_secundario = es.id_efecto_secundario AND es.efecto_secundario LIKE '%Envenena%';
+-- SELECT m.nombre, m.descripcion FROM movimiento m WHERE m.descripcion LIKE '%daño%';
+-- SELECT DISTINCT m.nombre FROM movimiento m, pokemon p, pokemon_movimiento_forma pmf WHERE p.numero_pokedex = pmf.numero_pokedex AND pmf.id_movimiento = m.id_movimiento AND p.nombre = 'Pikachu';
+-- SELECT DISTINCT m.nombre FROM movimiento m, pokemon p, pokemon_movimiento_forma pmf, forma_aprendizaje fa, tipo_forma_aprendizaje tfa WHERE p.numero_pokedex = pmf.numero_pokedex AND pmf.id_movimiento = m.id_movimiento AND pmf.id_forma_aprendizaje = fa.id_forma_aprendizaje AND fa.id_tipo_aprendizaje = tfa.id_tipo_aprendizaje AND tfa.tipo_aprendizaje = 'MT' AND p.nombre = 'Pikachu';
+-- SELECT DISTINCT m.nombre FROM movimiento m, pokemon p, pokemon_movimiento_forma pmf, forma_aprendizaje fa, tipo_forma_aprendizaje tfa, tipo t WHERE p.numero_pokedex = pmf.numero_pokedex AND pmf.id_movimiento = m.id_movimiento AND pmf.id_forma_aprendizaje = fa.id_forma_aprendizaje AND fa.id_tipo_aprendizaje = tfa.id_tipo_aprendizaje AND m.id_tipo = t.id_tipo AND t.nombre = 'Normal' AND tfa.tipo_aprendizaje = 'Nivel' AND p.nombre = 'Pikachu';
+-- SELECT m.*, mes.probabilidad FROM movimiento m, movimiento_efecto_secundario mes, efecto_secundario es WHERE m.id_movimiento = mes.id_movimiento AND mes.id_efecto_secundario = es.id_efecto_secundario AND mes.probabilidad >= 30;
+-- SELECT * FROM pokemon_evolucion_piedra;
+-- SELECT * FROM pokemon_no_evolucionan;
+-- SELECT * FROM cantidad_tipo_pokemon;

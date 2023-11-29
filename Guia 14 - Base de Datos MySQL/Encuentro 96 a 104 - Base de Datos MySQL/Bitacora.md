@@ -379,133 +379,339 @@ insertar datos en las mismas. A continuación, realizar las siguientes consultas
     - SELECT Nombre FROM jugadores ORDER BY Nombre ASC;
 
     1.2. Mostrar el nombre de los jugadores que sean pivots (‘C’) y que pesen más de 200 libras, ordenados por nombre alfabéticamente:
-    - 
+    - SELECT Nombre FROM jugadores WHERE posicion LIKE '%C%' AND peso > 200 ORDER BY Nombre ASC;
 
     1.3. Mostrar el nombre de todos los equipos ordenados alfabéticamente:
-    - 
+    - SELECT Nombre FROM equipos ORDER BY Nombre ASC;
 
     1.4. Mostrar el nombre de los equipos del este (East):
-    - 
+    - SELECT Nombre FROM equipos WHERE conferencia = 'East' ORDER BY Nombre ASC;
 
     1.5. Mostrar los equipos donde su ciudad empieza con la letra ‘c’, ordenados por nombre:
-    - 
+    - SELECT Nombre FROM equipos WHERE ciudad LIKE 'C%' ORDER BY Nombre ASC; 
 
     1.6. Mostrar todos los jugadores y su equipo ordenados por nombre del equipo:
-    -
+    - SELECT Nombre, Nombre_equipo FROM jugadores ORDER BY Nombre_equipo, Nombre ASC;
 
     1.7. Mostrar todos los jugadores del equipo “Raptors” ordenados por nombre:
-    - 
+    - SELECT Nombre, Nombre_equipo FROM jugadores WHERE Nombre_equipo = 'Raptors' ORDER BY Nombre ASC;
 
     1.8. Mostrar los puntos por partido del jugador ‘Pau Gasol’:
-    - 
+    - SELECT Puntos_por_partido FROM estadisticas e, jugadores j WHERE e.jugador = j.codigo AND j.Nombre = 'Pau Gasol';
 
     1.9. Mostrar los puntos por partido del jugador ‘Pau Gasol’ en la temporada ’04/05′:
-    - 
+    - SELECT Puntos_por_partido FROM estadisticas e, jugadores j WHERE e.jugador = j.codigo AND j.Nombre = 'Pau Gasol' AND temporada = '04/05';
 
     1.10. Mostrar el número de puntos de cada jugador en toda su carrera:
-    - 
+    - SELECT j.Nombre, SUM(e.Puntos_por_partido) AS Puntos FROM jugadores j, estadisticas e WHERE j.codigo = e.jugador GROUP BY j.Nombre ORDER BY j.Nombre ASC;
 
     1.11. Mostrar el número de jugadores de cada equipo:
-    - 
+    - SELECT Nombre_equipo, COUNT(*) FROM jugadores GROUP BY Nombre_equipo; 
 
-    1. 12. Mostrar el jugador que más puntos ha realizado en toda su carrera:
-    - 
+    1.12. Mostrar el jugador que más puntos ha realizado en toda su carrera:
+    - SELECT p.Nombre FROM (SELECT j.Nombre, SUM(e.Puntos_por_partido) AS Puntos FROM jugadores j, estadisticas e WHERE j.codigo = e.jugador GROUP BY j.Nombre ORDER BY j.Nombre ASC) p ORDER BY p.Puntos DESC LIMIT 1;
 
     1.13. Mostrar el nombre del equipo, conferencia y división del jugador más alto de la NBA:
-    - 
+    - SELECT j.Nombre AS Jugador, e.Nombre AS Equipo, e.conferencia AS Conferencia, e.division AS Division FROM equipos e, jugadores j WHERE e.Nombre = j.Nombre_equipo AND j.altura = (SELECT MAX(altura) FROM jugadores);
 
     1.14. Mostrar el partido o partidos (equipo_local, equipo_visitante y diferencia) con mayor diferencia de puntos:
-    - 
+    - SELECT equipo_local, equipo_visitante, ABS(puntos_local - puntos_visitante) AS diferencia FROM partidos WHERE ABS(puntos_local - puntos_visitante) = (SELECT MAX(ABS(puntos_local - puntos_visitante)) FROM partidos);
 
     1.15. Mostrar quien gana en cada partido (codigo, equipo_local, equipo_visitante, equipo_ganador), en caso de empate sera null:
-    - 
+    - SELECT codigo, equipo_local, equipo_visitante, CASE WHEN p.puntos_local > p.puntos_visitante THEN equipo_local WHEN p.puntos_local < p.puntos_visitante THEN equipo_visitante ELSE NULL END AS ganador FROM partidos p;
 
 2. Abrir el script de la base de datos llamada “jardineria.sql” y ejecutarlo para crear todas las
 tablas e insertar datos en las mismas. A continuación, se deben realizar las siguientes consultas sobre la base de datos:
 
     2.1. Devuelve un listado con el código de oficina y la ciudad donde hay oficinas:
-    - 
+    - SELECT codigo_oficina, ciudad FROM oficina;
 
     2.2. Devuelve un listado con la ciudad y el teléfono de las oficinas de España:
-    - 
+    - SELECT ciudad, telefono FROM oficina WHERE pais = 'España';
 
     2.3. Devuelve un listado con el nombre, apellidos y email de los empleados cuyo jefe tiene un código de jefe igual a 7:
-    - 
+    - SELECT nombre, apellido1, apellido2, email FROM empleado WHERE codigo_jefe = 7;
 
     2.4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa:
-    - 
+    - SELECT puesto, nombre, apellido1, apellido2, email FROM empleado WHERE puesto LIKE 'Director General';
 
     2.5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no sean representantes de ventas:
-    - 
+    - SELECT nombre, apellido1, apellido2, puesto FROM empleado WHERE puesto NOT LIKE 'Representante Ventas';
 
     2.6. Devuelve un listado con el nombre de los todos los clientes españoles:
-    - 
+    - SELECT nombre_cliente FROM cliente WHERE pais LIKE 'Spain';
 
     2.7. Devuelve un listado con los distintos estados por los que puede pasar un pedido:
-    -
+    - SELECT DISTINCT estado FROM pedido;
 
     2.8. Devuelve un listado con el código de cliente de aquellos clientes que realizaron algún pago en 2008. Tenga en cuenta que deberá eliminar aquellos códigos de cliente que aparezcan repetidos. Resuelva la consulta:
         ° Utilizando la función YEAR de MySQL.
-        - 
+        - SELECT DISTINCT pago.codigo_cliente FROM pago WHERE YEAR(pago.fecha_pago) = 2008;
         ° Utilizando la función DATE_FORMAT de MySQL.
-        - 
+        - SELECT DISTINCT pago.codigo_cliente FROM pago WHERE DATE_FORMAT(pago.fecha_pago, "%Y") = 2008;
         ° Sin utilizar ninguna de las funciones anteriores.
-        - 
+        - SELECT DISTINCT pago.codigo_cliente FROM pago WHERE DATE(pago.fecha_pago) >= "2008-01-01" AND DATE(pago.fecha_pago) <= "2008-12-31";
     
     2.9. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos que no han sido entregados a tiempo:
-    - 
+    - SELECT pedido.codigo_pedido, pedido.codigo_cliente, pedido.fecha_esperada, pedido.fecha_entrega FROM pedido WHERE pedido.estado = "Entregado" AND pedido.fecha_entrega > pedido.fecha_esperada;
 
     2.10. Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de los pedidos cuya fecha de entrega ha sido al menos dos días antes de la fecha esperada:
         ° Utilizando la función ADDDATE de MySQL.
-        -
+        - SELECT pedido.codigo_pedido, pedido.codigo_cliente, pedido.fecha_esperada, pedido.fecha_entrega FROM pedido WHERE ADDDATE(pedido.fecha_entrega, 2) <= pedido.fecha_esperada;
         ° Utilizando la función DATEDIFF de MySQL.
-        - 
+        - SELECT pedido.codigo_pedido, pedido.codigo_cliente, pedido.fecha_esperada, pedido.fecha_entrega FROM pedido WHERE DATEDIFF(pedido.fecha_esperada, pedido.fecha_entrega) >= 2;
     
     2.11. Devuelve un listado de todos los pedidos que fueron rechazados en 2009:
-    - 
+    - SELECT * FROM pedido WHERE pedido.estado = "Rechazado" AND YEAR(pedido.fecha_pedido) = 2009;
 
     2.12. Devuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier año:
-    -
+    - SELECT * FROM pedido WHERE pedido.estado = "Entregado" AND MONTH(pedido.fecha_entrega) = 1;
 
     2.13. Devuelve un listado con todos los pagos que se realizaron en el año 2008 mediante Paypal. Ordene el resultado de mayor a menor:
-    -
+    - SELECT * FROM pago WHERE YEAR(pago.fecha_pago) = 2008 AND pago.forma_pago = "PayPal" ORDER BY pago.total DESC;
 
     2.14. Devuelve un listado con todas las formas de pago que aparecen en la tabla pago. Tenga en cuenta que no deben aparecer formas de pago repetidas:
+    - SELECT DISTINCT pago.forma_pago FROM pago;
 
     2.15. Devuelve un listado con todos los productos que pertenecen a la gama Ornamentales y que tienen más de 100 unidades en stock. El listado deberá estar ordenado por su precio de venta, mostrando en primer lugar los de mayor precio:
-    -
+    - SELECT * FROM producto WHERE producto.gama = "Ornamentales" AND producto.cantidad_en_stock > 100 ORDER BY producto.precio_venta DESC;
 
     2.16. Devuelve un listado con todos los clientes que sean de la ciudad de Madrid y cuyo representante de ventas tenga el código de empleado 11 o 30:
-    - 
+    - SELECT * FROM cliente WHERE cliente.ciudad = "Madrid" AND (cliente.codigo_empleado_rep_ventas = 11 OR cliente.codigo_empleado_rep_ventas = 30);
 
     2.17. Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas:
-    - 
+    - SELECT c.nombre_cliente, c.nombre_contacto, c.apellido_contacto, e.nombre, e.apellido1, e.apellido2 FROM cliente c, empleado e WHERE c.codigo_empleado_rep_ventas = e.codigo_empleado;
 
     2.18 Muestra el nombre de los clientes que hayan realizado pagos junto con el nombre de sus representantes de ventas:
-    - 
+    - SELECT c.nombre_cliente, e.nombre AS "Representante de Ventas" FROM cliente c INNER JOIN empleado e ON e.codigo_empleado = c.codigo_empleado_rep_ventas INNER JOIN pago USING(codigo_cliente);
 
     2.19 Muestra el nombre de los clientes que no hayan realizado pagos junto con el nombre de sus representantes de ventas:
-    -
+    - SELECT c.nombre_cliente, e.nombre AS "Representante de Ventas" FROM cliente c INNER JOIN empleado e ON e.codigo_empleado = c.codigo_empleado_rep_ventas WHERE c.codigo_cliente NOT IN (SELECT p.codigo_cliente FROM pago p);
 
     2.20 Devuelve el nombre de los clientes que han hecho pagos y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante:
-    -
+    - SELECT DISTINCT cliente.nombre_cliente, empleado.nombre, oficina.ciudad FROM cliente INNER JOIN pago ON cliente.codigo_cliente = pago.codigo_cliente INNER JOIN empleado ON cliente.codigo_empleado_rep_ventas = empleado.codigo_empleado INNER JOIN oficina ON empleado.codigo_oficina = oficina.codigo_oficina;
 
     2.21 Devuelve el nombre de los clientes que no hayan hecho pagos y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante:
-    - 
+    - SELECT DISTINCT cliente.nombre_cliente, empleado.nombre, oficina.ciudad FROM cliente INNER JOIN empleado ON cliente.codigo_empleado_rep_ventas = empleado.codigo_empleado INNER JOIN oficina ON empleado.codigo_oficina = oficina.codigo_oficina WHERE cliente.codigo_cliente NOT IN (SELECT p.codigo_cliente FROM pago p);
 
     2.22 Lista la dirección de las oficinas que tengan clientes en Fuenlabrada:
-    - 
+    - SELECT oficina.linea_direccion1, oficina.linea_direccion2 FROM oficina INNER JOIN empleado ON empleado.codigo_oficina = oficina.codigo_oficina INNER JOIN cliente ON cliente.codigo_empleado_rep_ventas = empleado.codigo_empleado WHERE cliente.ciudad = "Fuenlabrada";
 
     2.23 Devuelve el nombre de los clientes y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante:
-    - 
+    - SELECT cliente.nombre_cliente, empleado.nombre, oficina.ciudad FROM cliente INNER JOIN empleado ON cliente.codigo_empleado_rep_ventas = empleado.codigo_empleado INNER JOIN oficina ON empleado.codigo_oficina = oficina.codigo_oficina;
 
     2.24 Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes:
-    - 
+    - SELECT empleado.nombre, e.nombre AS "Jefe" FROM empleado as e INNER JOIN empleado ON e.codigo_empleado = empleado.codigo_jefe;
 
     2.25 Devuelve el nombre de los clientes a los que no se les ha entregado a tiempo un pedido:
-    -
+    - SELECT DISTINCT cliente.nombre_cliente FROM cliente INNER JOIN pedido ON pedido.codigo_cliente = cliente.codigo_cliente WHERE pedido.fecha_esperada < pedido.fecha_entrega;
 
     2.26 Devuelve un listado de las diferentes gamas de producto que ha comprado cada cliente:
-    -
+    - SELECT DISTINCT c.nombre_cliente, p.gama FROM cliente AS c INNER JOIN pedido AS pe ON pe.codigo_cliente = c.codigo_cliente INNER JOIN detalle_pedido AS d ON d.codigo_pedido = pe.codigo_pedido INNER JOIN producto AS p ON p.codigo_producto = d.codigo_producto;
 
+    2.27 Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago:
+    - SELECT c.nombre_cliente FROM cliente AS c LEFT JOIN pago AS p ON p.codigo_cliente = c.codigo_cliente WHERE p.codigo_cliente IS NULL;
+
+    2.28 Devuelve un listado que muestre solamente los clientes que no han realizado ningún pedido:
+    - SELECT c.nombre_cliente FROM cliente AS c LEFT JOIN pedido AS p ON p.codigo_cliente = c.codigo_cliente WHERE p.codigo_cliente IS NULL;
+
+    2.29 Devuelve un listado que muestre los clientes que no han realizado ningún pago y los que no han realizado ningún pedido:
+    - SELECT c.nombre_cliente FROM cliente AS c LEFT JOIN pago AS p ON p.codigo_cliente = c.codigo_cliente LEFT JOIN pedido AS pe ON pe.codigo_cliente = c.codigo_cliente WHERE pe.codigo_cliente IS NULL;
+
+    2.30 Devuelve un listado que muestre solamente los empleados que no tienen una oficina asociada:
+    - SELECT e.nombre, e.apellido1, e.apellido2 FROM empleado AS e LEFT JOIN oficina AS o ON o.codigo_oficina = e.codigo_oficina WHERE o.codigo_oficina IS NULL;
+
+    2.31 Devuelve un listado que muestre solamente los empleados que no tienen un cliente asociado:
+    - SELECT e.nombre, e.apellido1, e.apellido2 FROM empleado AS e LEFT JOIN cliente AS c ON c.codigo_empleado_rep_ventas = e.codigo_empleado WHERE c.codigo_empleado_rep_ventas IS NULL;
+
+    2.32 Devuelve un listado que muestre los empleados que no tienen una oficina asociada y los que no tienen un cliente asociado:
+    - SELECT e.nombre, e.apellido1, e.apellido2 FROM empleado AS e LEFT JOIN oficina AS o ON o.codigo_oficina = e.codigo_oficina LEFT JOIN cliente AS c ON c.codigo_empleado_rep_ventas = e.codigo_empleado WHERE o.codigo_oficina IS NULL AND c.codigo_empleado_rep_ventas IS NULL;
+
+    2.33 Devuelve un listado de los productos que nunca han aparecido en un pedido:
+    - SELECT DISTINCT p.nombre FROM producto AS p LEFT JOIN detalle_pedido AS d ON d.codigo_producto = p.codigo_producto WHERE d.codigo_producto IS NULL;
+
+    2.34 Devuelve las oficinas donde no trabajan ninguno de los empleados que hayan sido los representantes de ventas de algún  cliente que haya realizado la compra de algún producto de la gama Frutales:
+    - SELECT * FROM oficina AS o LEFT JOIN (SELECT DISTINCT e.codigo_oficina FROM empleado AS e INNER JOIN cliente AS c ON c.codigo_empleado_rep_ventas = e.codigo_empleado INNER JOIN pedido AS p ON p.codigo_cliente = c.codigo_cliente INNER JOIN detalle_pedido AS de ON de.codigo_pedido = p.codigo_pedido INNER JOIN producto AS pro ON de.codigo_pedido = pro.codigo_producto WHERE pro.gama = "Frutales") AS q ON o.codigo_oficina = q.codigo_oficina WHERE q.codigo_oficina IS NULL;
+
+    2.35 Devuelve un listado con los clientes que han realizado algún pedido, pero no han realizado ningún pago:
+    - SELECT DISTINCT c.codigo_cliente, c.nombre_cliente FROM cliente as c LEFT JOIN pedido AS p ON p.codigo_cliente = c.codigo_cliente LEFT JOIN pago AS pa ON pa.codigo_cliente = c.codigo_cliente WHERE pa.codigo_cliente IS NULL AND c.codigo_cliente = p.codigo_cliente;
+
+    2.36 Devuelve un listado con los datos de los empleados que no tienen clientes asociados y el nombre de su jefe asociado:
+    - SELECT e.codigo_empleado, e.nombre, e.apellido1, e.apellido2, e.email, empleado.nombre AS 'Jefe' FROM empleado e LEFT JOIN empleado ON e.codigo_jefe = empleado.codigo_empleado LEFT JOIN cliente AS c ON c.codigo_empleado_rep_ventas = e.codigo_empleado WHERE c.codigo_empleado_rep_ventas IS NULL;
+
+    2.37 ¿Cuántos empleados hay en la compañía?:
+    - SELECT COUNT(empleado.codigo_empleado) FROM empleado;
+
+    2.38 ¿Cuántos clientes tiene cada país?:
+    - SELECT COUNT(cliente.codigo_cliente) AS "N° Clientes por país", cliente.pais FROM cliente GROUP BY pais ORDER BY COUNT(cliente.codigo_cliente) DESC;
+
+    2.39 ¿Cuál fue el pago medio en 2009?:
+    - SELECT AVG(pago.total) FROM pago WHERE YEAR(pago.fecha_pago) = 2009;
+
+    2.40 ¿Cuántos pedidos hay en cada estado? Ordena el resultado de forma descendente por el número de pedidos:
+    - SELECT pedido.estado, COUNT(pedido.codigo_pedido) FROM pedido GROUP BY pedido.estado ORDER BY COUNT(pedido.codigo_pedido) DESC;
+
+    2.41 Calcula el precio de venta del producto más caro y más barato en una misma consulta:
+    - SELECT MAX(producto.precio_venta), MIN(producto.precio_venta) FROM producto;
+
+    2.42 Calcula el número de clientes que tiene la empresa:
+    - SELECT COUNT(cliente.codigo_cliente) FROM cliente;
+
+    2.43 ¿Cuántos clientes tiene la ciudad de Madrid?:
+    - SELECT COUNT(cliente.codigo_cliente) FROM cliente WHERE cliente.ciudad = "Madrid";
+
+    2.44 ¿Calcula cuántos clientes tiene cada una de las ciudades que empiezan por M?:
+    - SELECT COUNT(cliente.codigo_cliente) FROM cliente WHERE cliente.ciudad LIKE "M%";
+
+    2.45 Devuelve el nombre de los representantes de ventas y el número de clientes al que atiende cada uno:
+    - SELECT e.nombre, COUNT(c.codigo_empleado_rep_ventas) FROM empleado AS e INNER JOIN cliente AS c ON c.codigo_empleado_rep_ventas = e.codigo_empleado GROUP BY e.codigo_empleado;
+
+    2.46 Calcula el número de clientes que no tiene asignado representante de ventas:
+    - SELECT COUNT(c.codigo_cliente) FROM cliente AS c WHERE c.codigo_empleado_rep_ventas IS NULL;
+
+    2.47 Calcula la fecha del primer y último pago realizado por cada uno de los clientes. El listado deberá mostrar el nombre y los apellidos de cada cliente:
+    - SELECT c.nombre_contacto, c.apellido_contacto, MIN(p.fecha_pago), MAX(p.fecha_pago) FROM pago AS p INNER JOIN cliente AS c ON c.codigo_cliente = p.codigo_cliente GROUP BY c.codigo_cliente;
+
+    2.48 Calcula el número de productos diferentes que hay en cada uno de los pedidos:
+    - SELECT detalle_pedido.codigo_pedido, COUNT(DISTINCT detalle_pedido.codigo_producto) FROM detalle_pedido GROUP BY detalle_pedido.codigo_pedido;
+
+    2.49 Calcula la suma de la cantidad total de todos los productos que aparecen en cada uno de los pedidos:
+    - SELECT detalle_pedido.codigo_pedido, SUM(detalle_pedido.cantidad) FROM detalle_pedido GROUP BY detalle_pedido.codigo_pedido;
+
+    2.50 Devuelve un listado de los 20 productos más vendidos y el número total de unidades que se han vendido de cada uno. El listado deberá estar ordenado por el número total de unidades vendidas:
+    - SELECT p.nombre, SUM(dp.cantidad) FROM producto p INNER JOIN detalle_pedido dp ON p.codigo_producto = dp.codigo_producto GROUP BY p.nombre ORDER BY SUM(dp.cantidad) DESC LIMIT 20;
+
+    2.51 La facturación que ha tenido la empresa en toda la historia, indicando la base imponible, el IVA y el total facturado. La base imponible se calcula sumando el coste del producto por el número de unidades vendidas de la tabla detalle_pedido. El IVA es el 21 % de la base imponible, y el total la suma de los dos campos anteriores:
+    - SELECT SUM(cantidad * precio_unidad) AS "Base Imponible", SUM(cantidad * precio_unidad * 0.21) AS "IVA", SUM(cantidad * precio_unidad) + SUM(cantidad * precio_unidad * 0.21) AS "Facturación Total" FROM detalle_pedido;
+
+    2.52 La misma información que en la pregunta anterior, pero agrupada por código de producto:
+    - SELECT codigo_producto, SUM(cantidad * precio_unidad) AS "Base Imponible", SUM(cantidad * precio_unidad * 0.21) AS "IVA", SUM(cantidad * precio_unidad) + SUM(cantidad * precio_unidad * 0.21) AS "Facturación Total" FROM detalle_pedido GROUP BY codigo_producto ORDER BY SUM(cantidad * precio_unidad) + SUM(cantidad * precio_unidad * 0.21) ASC;
+
+    2.53 La misma información que en la pregunta anterior, pero agrupada por código de producto filtrada por los códigos que empiecen por OR:
+    - SELECT codigo_producto, SUM(cantidad * precio_unidad) AS "Base Imponible", SUM(cantidad * precio_unidad * 0.21) AS "IVA", SUM(cantidad * precio_unidad) + SUM(cantidad * precio_unidad * 0.21) AS "Facturación Total" FROM detalle_pedido WHERE codigo_producto LIKE "OR%" GROUP BY codigo_producto ORDER BY SUM(cantidad * precio_unidad) + SUM(cantidad * precio_unidad * 0.21) ASC;
+
+    2.54 Lista las ventas totales de los productos que hayan facturado más de 3000 euros. Se mostrará el nombre, unidades vendidas, total facturado y total facturado con impuestos (21% IVA):
+    - SELECT producto.nombre AS "Nombre del producto", SUM(detalle_pedido.cantidad) AS "Unidades vendidas", SUM(detalle_pedido.cantidad * detalle_pedido.precio_unidad) AS "Total facturado", SUM(detalle_pedido.cantidad * detalle_pedido.precio_unidad * 0.21) AS "IVA", SUM(detalle_pedido.cantidad * detalle_pedido.precio_unidad) + SUM(detalle_pedido.cantidad * detalle_pedido.precio_unidad * 0.21) AS "Total facturado con impuestos" FROM producto INNER JOIN detalle_pedido ON detalle_pedido.codigo_producto = producto.codigo_producto GROUP BY producto.codigo_producto HAVING SUM(detalle_pedido.cantidad * detalle_pedido.precio_unidad) > 3000;
+
+    2.55 Devuelve el nombre del cliente con mayor límite de crédito:
+    - SELECT cliente.codigo_cliente, cliente.nombre_cliente, cliente.limite_credito FROM cliente WHERE cliente.limite_credito = (SELECT MAX(cliente.limite_credito) FROM cliente);
+
+    2.56 Devuelve el nombre del producto que tenga el precio de venta más caro:
+    - SELECT producto.codigo_producto, producto.nombre, producto.precio_venta FROM producto WHERE producto.precio_venta = (SELECT MAX(producto.precio_venta) FROM producto);
+
+    2.57 Devuelve el nombre del producto del que se han vendido más unidades. (Tenga en cuenta que tendrá que calcular cuál es el número total de unidades que se han vendido de cada producto a partir de los datos de la tabla detalle_pedido. Una vez que sepa cuál es el código del producto, puede obtener su nombre fácilmente.):
+    - SELECT producto.nombre, detalle_pedido.codigo_producto, SUM(detalle_pedido.cantidad) FROM detalle_pedido INNER JOIN producto ON producto.codigo_producto = detalle_pedido.codigo_producto GROUP BY detalle_pedido.codigo_producto ORDER BY SUM(detalle_pedido.cantidad) DESC LIMIT 1;
+
+    2.58 Los clientes cuyo límite de crédito sea mayor que los pagos que haya realizado. (Sin utilizar INNER JOIN):
+    - SELECT cliente.nombre_cliente FROM cliente WHERE cliente.limite_credito > (SELECT SUM(pago.total) FROM pago WHERE pago.codigo_cliente = cliente.codigo_cliente);
+
+    2.59 Devuelve el producto que más unidades tiene en stock:
+    - SELECT p.nombre, SUM(p.cantidad_en_stock) FROM producto p GROUP BY p.nombre HAVING SUM(p.cantidad_en_stock) = (SELECT MAX(suma) AS max_suma FROM (SELECT SUM(p.cantidad_en_stock) AS suma FROM producto p GROUP BY p.nombre) AS subquery);
+
+    2.60 Devuelve el producto que menos unidades tiene en stock:
+    - SELECT p.nombre, SUM(p.cantidad_en_stock) FROM producto p GROUP BY p.nombre HAVING SUM(p.cantidad_en_stock) = (SELECT MIN(suma) AS min_suma FROM (SELECT SUM(p.cantidad_en_stock) AS suma FROM producto p GROUP BY p.nombre) AS subquery);
+
+    2.61 Devuelve el nombre, los apellidos y el email de los empleados que están a cargo de Alberto Soria:
+    - SELECT empleado.nombre, empleado.apellido1, empleado.apellido2, empleado.email FROM empleado WHERE empleado.codigo_jefe = (SELECT empleado.codigo_empleado FROM empleado WHERE empleado.nombre = "Alberto" AND empleado.apellido1 = "Soria");
+
+    2.62 Devuelve el nombre del cliente con mayor límite de crédito:
+    - SELECT cliente.nombre_cliente FROM cliente WHERE cliente.limite_credito >= ALL (SELECT cliente.limite_credito FROM cliente);
+
+    2.63 Devuelve el nombre del producto que tenga el precio de venta más caro:
+    - SELECT producto.nombre FROM producto WHERE producto.precio_venta >= ALL (SELECT producto.precio_venta FROM producto);
+
+    2.64 Devuelve el producto que menos unidades tiene en stock:
+    - SELECT producto.nombre, producto.cantidad_en_stock FROM producto WHERE producto.cantidad_en_stock <= ALL (SELECT producto.cantidad_en_stock FROM producto);
+
+    2.65 Devuelve el nombre, apellido1 y cargo de los empleados que no representen a ningún cliente:
+    - SELECT empleado.nombre, empleado.apellido1, empleado.puesto FROM empleado WHERE empleado.codigo_empleado NOT IN (SELECT cliente.codigo_empleado_rep_ventas FROM cliente);
+
+    2.66 Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago:
+    - SELECT * FROM cliente WHERE cliente.codigo_cliente NOT IN (SELECT pago.codigo_cliente FROM pago);
+
+    2.67 Devuelve un listado que muestre solamente los clientes que sí han realizado ningún pago:
+    - SELECT * FROM cliente WHERE cliente.codigo_cliente IN (SELECT pago.codigo_cliente FROM pago);
+
+    2.68 Devuelve un listado de los productos que nunca han aparecido en un pedido:
+    - SELECT * FROM producto WHERE producto.codigo_producto NOT IN (SELECT detalle_pedido.codigo_producto FROM detalle_pedido);
+
+    2.69 Devuelve el nombre, apellidos, puesto y teléfono de la oficina de aquellos empleados que no sean representante de ventas de ningún cliente:
+    - SELECT empleado.nombre, empleado.apellido1, empleado.apellido2, empleado.puesto FROM empleado INNER JOIN oficina ON oficina.codigo_oficina = empleado.codigo_oficina WHERE empleado.codigo_empleado NOT IN (SELECT cliente.codigo_empleado_rep_ventas FROM cliente);
     
+    2.70 Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago:
+    - SELECT * FROM cliente WHERE NOT EXISTS (SELECT * FROM pago WHERE pago.codigo_cliente = cliente.codigo_cliente);
+
+    2.71 Devuelve un listado que muestre solamente los clientes que sí han realizado ningún pago:
+    - SELECT * FROM cliente WHERE EXISTS (SELECT * FROM pago WHERE pago.codigo_cliente = cliente.codigo_cliente);
+
+    2.72 Devuelve un listado de los productos que nunca han aparecido en un pedido:
+    - SELECT * FROM producto WHERE NOT EXISTS (SELECT * FROM detalle_pedido WHERE detalle_pedido.codigo_producto = producto.codigo_producto);
+
+    2.73 Devuelve un listado de los productos que han aparecido en un pedido alguna vez:
+    - SELECT * FROM producto WHERE EXISTS (SELECT * FROM detalle_pedido WHERE detalle_pedido.codigo_producto = producto.codigo_producto);
+
+3. Importar el script de la base de datos llamada “pokemondb.sql” y ejecutarlo para crear todas
+las tablas e insertar los registros en las mismas. A continuación, se deben realizar las siguientes consultas:
+
+    3.1 Mostrar el nombre de todos los pokemon:
+    - SELECT nombre FROM pokemon;
+
+    3.2 Mostrar los pokemon que pesen menos de 10k:
+    - SELECT nombre FROM pokemon WHERE peso <= 10;
+
+    3.3 Mostrar los pokemon de tipo agua:
+    - SELECT p.nombre FROM pokemon p, pokemon_tipo pt, tipo t WHERE p.numero_pokedex = pt.numero_pokedex AND pt.id_tipo=t.id_tipo AND t.nombre = 'Agua';
+
+    3.4 Mostrar los pokemon de tipo agua, fuego o tierra ordenados por tipo:
+    - SELECT p.nombre, t.nombre FROM pokemon p, pokemon_tipo pt, tipo t WHERE p.numero_pokedex = pt.numero_pokedex AND pt.id_tipo=t.id_tipo AND t.nombre = 'Agua' OR t.nombre = 'Fuego' OR t.nombre = 'Tierra' ORDER BY t.nombre;
+
+    3.5 Mostrar los pokemon que son de tipo fuego y volador:
+    - SELECT nombre FROM pokemon WHERE numero_pokedex IN (SELECT numero_pokedex FROM pokemon_tipo pt, tipo t WHERE pt.id_tipo=t.id_tipo AND t.nombre = 'Fuego') AND numero_pokedex IN (SELECT numero_pokedex FROM pokemon_tipo pt, tipo t WHERE pt.id_tipo=t.id_tipo AND t.nombre = 'Volador');
+
+    3.6 Mostrar los pokemon con una estadística base de ps mayor que 200:
+    - SELECT p.nombre FROM pokemon p, estadisticas_base est WHERE p.numero_pokedex=est.numero_pokedex AND est.ps >= 200;
+
+    3.7 Mostrar los datos (nombre, peso, altura) de la prevolución de Arbok:
+    - SELECT p.nombre, p.altura, p.peso FROM pokemon p, evoluciona_de ev WHERE p.numero_pokedex = ev.pokemon_origen AND ev.pokemon_evolucionado = (SELECT numero_pokedex FROM pokemon WHERE nombre = 'Arbok');
+
+    3.8 Mostrar aquellos pokemon que evolucionan por intercambio:
+    - SELECT p.nombre FROM pokemon p, pokemon_forma_evolucion pfe, forma_evolucion fe, tipo_evolucion te WHERE p.numero_pokedex = pfe.numero_pokedex AND pfe.id_forma_evolucion = fe.id_forma_evolucion AND fe.tipo_evolucion = te.id_tipo_evolucion AND te.tipo_evolucion = 'Intercambio';
+
+    3.9 Mostrar el nombre del movimiento con más prioridad:
+    - SELECT nombre FROM movimiento mov WHERE prioridad = (SELECT MAX(prioridad) FROM movimiento);
+
+    3.10 Mostrar el pokemon más pesado:
+    - SELECT nombre, peso FROM pokemon WHERE peso = (SELECT MAX(peso) FROM pokemon);
+
+    3.11 Mostrar el nombre y tipo del ataque con más potencia:
+    - SELECT m.nombre AS movimiento, t.nombre AS tipo, m.potencia FROM movimiento m, tipo t WHERE m.id_tipo = t.id_tipo AND m.potencia = (SELECT MAX(potencia) FROM movimiento);
+
+    3.12 Mostrar el número de movimientos de cada tipo:
+    - SELECT t.nombre AS tipo, COUNT(*) AS num_mov FROM tipo t, movimiento m WHERE m.id_tipo = t.id_tipo GROUP BY t.nombre;
+
+    3.13 Mostrar todos los movimientos que puedan envenenar:
+    - SELECT m.nombre, mes.probabilidad FROM movimiento m, movimiento_efecto_secundario mes, efecto_secundario es WHERE m.id_movimiento = mes.id_movimiento AND mes.id_efecto_secundario = es.id_efecto_secundario AND es.efecto_secundario LIKE '%Envenena%';
+
+    3.14 Mostrar todos los movimientos que causan daño, ordenados alfabéticamente por nombre:
+    - SELECT m.nombre, m.descripcion FROM movimiento m WHERE m.descripcion LIKE '%daño%';
+    
+    3.15 Mostrar todos los movimientos que aprende pikachu:
+    - SELECT DISTINCT m.nombre FROM movimiento m, pokemon p, pokemon_movimiento_forma pmf WHERE p.numero_pokedex = pmf.numero_pokedex AND pmf.id_movimiento = m.id_movimiento AND p.nombre = 'Pikachu';
+
+    3.16 Mostrar todos los movimientos que aprende pikachu por MT (tipo de aprendizaje):
+    - SELECT DISTINCT m.nombre FROM movimiento m, pokemon p, pokemon_movimiento_forma pmf, forma_aprendizaje fa, tipo_forma_aprendizaje tfa WHERE p.numero_pokedex = pmf.numero_pokedex AND pmf.id_movimiento = m.id_movimiento AND pmf.id_forma_aprendizaje = fa.id_forma_aprendizaje AND fa.id_tipo_aprendizaje = tfa.id_tipo_aprendizaje AND tfa.tipo_aprendizaje = 'MT' AND p.nombre = 'Pikachu';
+
+    3.17 Mostrar todos los movimientos de tipo normal que aprende pikachu por nivel:
+    - SELECT DISTINCT m.nombre FROM movimiento m, pokemon p, pokemon_movimiento_forma pmf, forma_aprendizaje fa, tipo_forma_aprendizaje tfa, tipo t WHERE p.numero_pokedex = pmf.numero_pokedex AND pmf.id_movimiento = m.id_movimiento AND pmf.id_forma_aprendizaje = fa.id_forma_aprendizaje AND fa.id_tipo_aprendizaje = tfa.id_tipo_aprendizaje AND m.id_tipo = t.id_tipo AND t.nombre = 'Normal' AND tfa.tipo_aprendizaje = 'Nivel' AND p.nombre = 'Pikachu';
+
+    3.18 Mostrar todos los movimientos de efecto secundario cuya probabilidad sea mayor al 30%:
+    - SELECT m.*, mes.probabilidad FROM movimiento m, movimiento_efecto_secundario mes, efecto_secundario es WHERE m.id_movimiento = mes.id_movimiento AND mes.id_efecto_secundario = es.id_efecto_secundario AND mes.probabilidad >= 30;
+
+    3.19 Mostrar todos los pokemon que evolucionan por piedra:
+    - SELECT * FROM pokemon_evolucion_piedra;
+
+    3.20 Mostrar todos los pokemon que no pueden evolucionar:
+    - SELECT * FROM pokemon_no_evolucionan;
+    
+    3.21 Mostrar la cantidad de los pokemon de cada tipo:
+    - SELECT * FROM cantidad_tipo_pokemon;
