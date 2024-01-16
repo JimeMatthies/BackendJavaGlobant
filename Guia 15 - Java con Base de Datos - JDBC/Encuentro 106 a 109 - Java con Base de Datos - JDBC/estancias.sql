@@ -105,3 +105,9 @@ INSERT INTO comentarios VALUES(4,2,'Si quieres encontrar un ambiente ingles aut�
 INSERT INTO comentarios VALUES(5,3,'Si vienes a divertirte, y te gusta la libertad, has encontrado el lugar indicado. Horarios muy flexibles');
 INSERT INTO comentarios VALUES(6,3,'Si quieres que no te hagan caso, con esta familia estás de suerte. Ningun tipo de contacto con ellos');
 INSERT INTO comentarios VALUES(7,4,'Una familia adorable, buen trato, mucha comunicación, cuando vuelvas hablarás inglés por los codos de tanto practicar');
+
+SELECT * FROM clientes;
+SELECT * FROM casas;
+SELECT * FROM familias;
+SELECT * FROM estancias;
+SELECT * FROM comentarios;

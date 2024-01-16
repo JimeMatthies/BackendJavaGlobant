@@ -98,3 +98,12 @@ INSERT INTO producto VALUES(11, 'Impresora HP Laserjet Pro M26nw', 180, 3);
 -- SELECT * FROM fabricante WHERE codigo IN (SELECT codigo_fabricante FROM producto);
 -- SELECT * FROM fabricante WHERE codigo NOT IN (SELECT codigo_fabricante FROM producto);
 -- SELECT f.nombre, count(*) FROM producto p, fabricante f WHERE p.codigo_fabricante = f.codigo GROUP BY f.nombre HAVING COUNT(*) = (SELECT COUNT(*) FROM producto WHERE codigo_fabricante = (SELECT codigo FROM fabricante WHERE nombre ='Lenovo'));
+
+/* Ejercicio JDBC */
+-- SELECT nombre FROM producto;
+-- SELECT nombre, precio FROM producto;
+-- SELECT * FROM producto WHERE precio >= 120 AND precio <= 202;
+-- SELECT * FROM producto WHERE nombre LIKE '%Portátil%';
+-- SELECT nombre, precio FROM producto ORDER BY precio ASC LIMIT 1;
+
+SELECT * FROM producto;

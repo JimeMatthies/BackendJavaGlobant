@@ -1,0 +1,60 @@
+/*
+Guia 18 = Aplicación Biblioteca Spring (Videos 1-14)
+@author JimeM
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@100&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    overflow: hidden;
+}
+
+.row {
+  margin: 0 !important;
+}
+
+.egg__navbar{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.egg__navbar-logo{
+    margin-left: 2rem;
+    width: 30%;
+}
+
+a.dropdown-item:hover{
+    background-color: #ffe590 !important;
+}
+
+.egg__header{
+    background-color: #fada6d;
+    background-image: url(../img/FondoZoom_2.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+    padding: 4rem 2rem 18rem 2rem;
+}
+
+.egg__header--title,
+.egg__header--subtitle {
+    padding-right: 10rem;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 700;
+}
+
+.egg__alert{
+    padding-top: 2rem;
+}
+
+.egg__footer{
+    background-color: #ffffff;
+    font-family: 'Rokkitt', serif;
+    font-weight: bolder;
+}

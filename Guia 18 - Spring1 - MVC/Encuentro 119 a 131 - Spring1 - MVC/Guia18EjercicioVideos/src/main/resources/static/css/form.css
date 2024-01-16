@@ -1,0 +1,143 @@
+/*
+Guia 18 = Aplicación Biblioteca Spring (Videos 1-14)
+@author JimeM
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@100&display=swap');
+ 
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    overflow: hidden;
+}
+
+.row {
+  margin: 0 !important;
+}
+
+.egg__navbar{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.egg__navbar-logo{
+    margin-left: 2rem;
+    width: 30%;
+}
+
+a.dropdown-item:hover{
+    background-color: #ffe590 !important;
+}
+
+.egg__content{
+    background-color: #e6f7fe;
+    background-image: url(../img/FondoZoom.jpg);
+    background-size: cover;
+    background-blend-mode: multiply;
+    padding: 2rem 2rem 15rem 2rem;
+}
+
+.egg__content--card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.egg__content--title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.egg__content--form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.egg__content--group {
+  position: relative;
+}
+
+.egg__content--form .egg__content--group label, option {
+  font-size: 14px;
+  color: rgb(99, 102, 102);
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: #fff;
+  transition: all .3s ease;
+}
+
+select{
+    color: rgb(99, 102, 102);
+}
+
+.egg__content--form .egg__content--group input,
+.egg__content--form .egg__content--group textarea,
+select{
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  outline: 0;
+  width: 100%;
+  background-color: transparent;
+}
+
+.egg__content--form .egg__content--group input:placeholder-shown+ label,
+.egg__content--form .egg__content--group textarea:placeholder-shown +label, 
+select:placeholder-shown + option{
+  top: 10px;
+  background-color: transparent;
+}
+
+.egg__content--form .egg__content--group input:focus,
+.egg__content--form .egg__content--group textarea:focus, 
+select:focus{
+  border-color: #3366cc;
+}
+
+.egg__content--form .egg__content--group input:focus+label,
+.egg__content--form .egg__content--group textarea:focus+label,
+select:focus+option{
+  top: -10px;
+  left: 10px;
+  background-color: #fff;
+  color: #3366cc;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.egg__content--form .egg__content--group textarea {
+  resize: none;
+  height: 100px;
+}
+
+.egg__content--form button {
+  background-color: #3366cc;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.egg__content--form button:hover {
+  background-color: #27408b;
+}
+
+.egg__footer{
+    background-color: #ffffff;
+    font-family: 'Rokkitt', serif;
+    font-weight: bolder;
+}
