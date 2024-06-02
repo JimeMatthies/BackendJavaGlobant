@@ -30,7 +30,17 @@ Durante el curso se utilizan distintos videos con ejemplos y tips para aprender 
 - [Guía 10](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2010%20-%20Colecciones/Encuentro%2061%20a%2070%20-%20Colecciones)
 - [Guía 11](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2011%20-%20Relaciones%20entre%20clases/Encuentro%2071%20a%2080%20-%20Relaciones%20entre%20clases)
 - [Guía 12](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
-
+- [Guía 13](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
+- [Guía 14](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
+- [Guía 15](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
+- [Guía 16](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
+- [Guía 17](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
+- [Guía 18](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
+- [Guía 19](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
+- [Guía 20](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
+- [Guía 21](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
+- [Guía 22](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
+- [Guía 23](https://github.com/JimeMatthies/BackendJavaGlobant/tree/master/Guia%2012%20-%20Herencia/Encuentro%2081%20a%2089%20-%20Herencia)
 
 <!-- CONTACTO -->
 
